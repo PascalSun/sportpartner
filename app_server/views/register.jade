@@ -1,0 +1,22 @@
+extends layout
+block link
+  link(rel='stylesheet', href='/stylesheets/login.css')
+  link(rel='stylesheet', href='/stylesheets/index.css')
+block content
+  div.intro#home
+    div.login
+      form(name="register",method ='POST',action='/register')
+        fieldset
+          legend Register your Sport Partner account
+          br
+          p Email:
+          input(type="email",name="email" required)
+          p Password:
+          input(type="password",name = "password" required)
+
+          p RePassword:
+          input(type="password",name="password" required)
+          br
+          input(type="submit",value="Submit")
+          input(type="reset", value="Reset")
+          br

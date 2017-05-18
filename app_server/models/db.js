@@ -1,5 +1,5 @@
 var mongoose = require('mongoose');
-
+// Connect to mlab here, just use to do some experiment now
 var dbURI = 'mongodb://localhost:27017/sportpartner';
 mongoose.connect(dbURI);
 
@@ -19,3 +19,5 @@ var gracefulShutdown = function (msg,callback){
             callback();
     });
 };
+
+require('./user.js');
