@@ -3,6 +3,9 @@ MEAN stack project
 
 ## Functions
 - [x] Basic Views
+- [ ] Set up mongodb
+  - [x] local machine
+  - [ ] mLab
 - [x] Register Functions
   - [x] Register/Login with passport
   - [x] Validate Password
@@ -57,15 +60,17 @@ MEAN stack project
     passport.authenticate('local', function(err, user, info) {
       if (err) { console.log('1');res.render('login',{message:"Username or Password Wrong"});  }
       if (!user) { console.log('2');res.render('login',{message:info.message}); }
-      if(user){
-      res.render('index',{username:req.body.username,user:user});
-      }
-      else{
-        res.render('login',{message:'Username and Password not match'});
-      }
-    })(req, res, next);
+      req.logIn(user, function(err) {
+          if (err) {
+          res.render('login',{message:'Username and Password not match'});
+          }
+          res.render('index',{username:req.body.username,user:user});
+      });
+    })(req, res,next);
+
   });
   ```
+  - the **logIn** function is very important to keep alive
 
 - Sometimes, we need to define the passport Strategy by our self
   ```

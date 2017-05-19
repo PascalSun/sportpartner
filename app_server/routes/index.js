@@ -7,7 +7,7 @@ var Account = require('../models/account');
 // var adduser = require('../controller/register');
 /* GET home page. */
 router.get('/', function(req, res) {
-  res.render('index', {user: req.user});
+  res.render('index', {username:req.body.username,user:req.user});
 });
 
 // Get register page
@@ -43,20 +43,21 @@ router.get('/login', function(req, res) {
   res.render('login', {user: req.user});
 });
 
-// Post to login: need to deal with error information
+
+//Post to login: need to deal with error information
 router.post('/login', function(req, res, next) {
   passport.authenticate('local', function(err, user, info) {
     if (err) { console.log('1');res.render('login',{message:"Username or Password Wrong"});  }
     if (!user) { console.log('2');res.render('login',{message:info.message}); }
-    if(user){
-    res.render('index',{username:req.body.username,user:user});
-    }
-    else{
-      res.render('login',{message:'Username and Password not match'});
-    }
-  })(req, res, next);
-});
+    req.logIn(user, function(err) {
+        if (err) {
+        res.render('login',{message:'Username and Password not match'});
+        }
+        res.render('index',{username:req.body.username,user:user});
+    });
+  })(req, res,next);
 
+});
 
 // Logout
 router.get('/logout', function(req, res) {
@@ -71,8 +72,7 @@ router.get('/reset',function(req,res) {
 
 // Post to change the password
 router.post('/reset',function(req,res) {
-  // console.log(req.user.username);
-  // console.log(req.body.newpassword);
+
   if(req.user){
   if(req.user.username==req.body.username){
   Account.findByUsername(req.body.username).then(function(sanitizedUser){
