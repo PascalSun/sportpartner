@@ -1,20 +1,6 @@
 require('../models/db');
 var mongoose = require('mongoose');
 var User = mongoose.model('User');
-// model.exports.UserList = index;
-// function index(req,res){
-//   User.find().exec(
-//     function(err,simpleData){
-//       if(err){res.render('error',{
-//         message:err.message,
-//         error:err
-//       });
-//     }
-//     else{console.log('Find Complete')};
-//       res.render('user')
-//     }
-//   )
-// }
 module.exports.newUser = index;
 
 

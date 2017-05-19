@@ -4,6 +4,10 @@ var favicon = require('serve-favicon');
 var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
+var session = require('cookie-session');
+// for passport
+var passport = require('passport');
+var LocalStrategy = require('passport-local').Strategy;
 
 var index = require('./app_server/routes/index');
 var users = require('./app_server/routes/users');
@@ -20,10 +24,22 @@ app.use(logger('dev'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
+app.use(session({keys: ['secretkey1', 'secretkey2', '...']}));
+//for passport
+
+app.use(passport.initialize());
+app.use(passport.session());
+//end for passport
 app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', index);
 app.use('/users', users);
+
+//passport config
+var Account = require('./app_server/models/account');
+passport.use(new LocalStrategy(Account.authenticate()));
+passport.serializeUser(Account.serializeUser());
+passport.deserializeUser(Account.deserializeUser());
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

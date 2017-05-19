@@ -10,13 +10,13 @@ block content
           legend Register your Sport Partner account
           br
           p Email:
-          input(type="email",name="email" required)
+          - var email = "sunqiang93@163.com"
+          input(type="email",name="username",value="#{email}" required)
           p Password:
-          input(type="password",name = "password" required)
+          - var password = "sunQIANG9337"
+          input(type="password",name = "password",value = "#{password}" required)
 
-          p RePassword:
-          input(type="password",name="password" required)
-          br
+          <br>
           input(type="submit",value="Submit")
           input(type="reset", value="Reset")
           br

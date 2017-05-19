@@ -12,8 +12,14 @@ html
           li#left
             a(href="/") Sports Partner
           li
+            a(href="/logout") logout
+          li
             a(href="/register") Register
           li
             a(href="/login") login
+          li
+            if (user)
+              a(href='/profile') #{user.username}
+
     block content
     include footer
