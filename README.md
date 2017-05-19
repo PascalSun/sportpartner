@@ -5,9 +5,9 @@ MEAN stack project
 - [ ] Basic Views
 - [ ] Register Functions
   - [x] Register/Login with passport
-  - [ ] Validate Password
+  - [x] Validate Password
     - [x] client side
-    - [ ] server side
+    - [x] server side
   - [ ] Validate email
   - [ ] Change Password
 - [ ] Edit profile
@@ -19,3 +19,11 @@ MEAN stack project
 - [ ] Add Functions
   - [ ] Match Online Status
   - [ ] RealTime Chat
+
+## Instructions
+- how to run
+  ```
+  npm start
+  ```
+
+## Some Notes

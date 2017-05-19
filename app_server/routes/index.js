@@ -31,7 +31,7 @@ router.post('/register', function(req, res, next) {
   }
   else{
     console.log('Password Not Match');
-    res.redirect('/register');
+    res.render('register',{errors:'Password not match'});
   }
 });
 

@@ -2,7 +2,7 @@ extends layout
 block link
   link(rel='stylesheet', href='/stylesheets/login.css')
   link(rel='stylesheet', href='/stylesheets/index.css')
-  script(src="/javascripts/register.js")
+
 block content
   div.intro#home
     div.login
@@ -13,9 +13,13 @@ block content
           p Email:
           - var email = "sunqiang93@163.com"
           input(type="email",name="username",value="#{email}" required)
+
           p Password:
+          if(errors)
+            p(style="font-style:italic;font-size:10px;color:red") #{errors}
           - var password = "sunQIANG9337"
           input(type="password",name = "password",id="password",value = "#{password}" required)
+
           p RePasspord:
           input(type="password",name = "repassword", id="password2", value="#{password}" required)
           <br>
