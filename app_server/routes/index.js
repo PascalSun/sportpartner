@@ -10,23 +10,26 @@ router.get('/', function(req, res) {
   res.render('index', {user: req.user});
 });
 
+// Get register page
 router.get('/register', function(req, res) {
   res.render('register', {});
 });
 
+// Post to register new accounts
 router.post('/register', function(req, res, next) {
   console.log('registering user');
-  if (req.body.password == req.body.repassword)
+  if ((req.body.password == req.body.repassword)&&(req.body.password.length!=0))
   {
   Account.register(new Account({username: req.body.username}), req.body.password, function(err) {
     if (err) {
-      console.log('error while user register!', err);
-      return next(err);
+      console.log(err);
+      res.render('register',{namerror:'User Already Exist'});
     }
-
+    else{
+    // After registered, redirect to login page with username and password
     console.log('user registered!');
-
-    res.redirect('/');
+    res.render('login',{username:req.body.username,password:req.body.password});
+  }
     });
   }
   else{
@@ -40,7 +43,7 @@ router.get('/login', function(req, res) {
 });
 
 router.post('/login', passport.authenticate('local'), function(req, res) {
-  res.redirect('/');
+  res.render('index',{username:req.body.username,user:req.user});
 });
 
 router.get('/logout', function(req, res) {

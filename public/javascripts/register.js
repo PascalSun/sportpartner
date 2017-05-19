@@ -1,7 +1,7 @@
 
 function registerSubmit() {
     if (isValidRegistration()) {
-        alert("You have created your account successfully!");
+
         return true;
     }
     else{

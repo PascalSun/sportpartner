@@ -11,11 +11,15 @@ block content
           legend Login to your Sport Partner account
           br
           p Email:
-
-          input(type="email",name="username",placeholder="#{email}" required)
+          if(username)
+            input(type="email",name="username",value="#{username}" required)
+          else
+            input(type="email",name="username",placeholder="Input your email" required)
           p Password:
-
-          input(type="password",name = "password", value = "#{password}" required)
+          if(password)
+            input(type="password",name = "password", value = "#{password}" required)
+          else
+            input(type="password",name = "password", placeholder="Input your password" required)
           br
           input(type="submit",value="Submit")
           input(type="reset", value="Reset")

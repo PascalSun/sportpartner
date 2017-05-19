@@ -6,5 +6,9 @@ block content
   div.intro#home
     div.intro-message
       h1 SportsPartner #{name}
-      h2 Find the best SportsPartner for your health
+      if(username)
+        h2 Welcome #{username} !
+      else if (user)
+        h2 Welcome #{user.username} !
       hr.intro-divider
+      h2 Find the best SportsPartner for your health

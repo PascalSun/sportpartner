@@ -2,7 +2,7 @@ extends layout
 block link
   link(rel='stylesheet', href='/stylesheets/login.css')
   link(rel='stylesheet', href='/stylesheets/index.css')
-
+  script(src="/javascripts/register.js")
 block content
   div.intro#home
     div.login
@@ -11,12 +11,14 @@ block content
           legend Register your Sport Partner account
           br
           p Email:
+          if(namerror)
+            p(style="font-style:italic;font-size:15px;color:purple") #{namerror}
           - var email = "sunqiang93@163.com"
           input(type="email",name="username",value="#{email}" required)
 
           p Password:
           if(errors)
-            p(style="font-style:italic;font-size:10px;color:red") #{errors}
+            p(style="font-style:italic;font-size:15px;color:purple") #{errors}
           - var password = "sunQIANG9337"
           input(type="password",name = "password",id="password",value = "#{password}" required)
 

@@ -8,8 +8,16 @@ MEAN stack project
   - [x] Validate Password
     - [x] client side
     - [x] server side
-  - [ ] Validate email
+      - [x] the same
+      - [x] not empty
+  - [x] Validate email
+    - [x] not empty
+    - [x] already token
   - [ ] Change Password
+  - [x] After register, redirect to login page and keep the username and password info
+  - [ ] error handle
+    - [ ] login
+    - [ ] register
 - [ ] Edit profile
 - [ ] Edit prefernece
 - [ ] Show matches
