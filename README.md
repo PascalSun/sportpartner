@@ -38,4 +38,47 @@ MEAN stack project
   npm start
   ```
 
+## Reference
+- About connect-flash: http://mclspace.com/2015/12/03/nodejs-flash-note/
+- Passport.js Document: http://passportjs.org/features
+
 ## Some Notes
+- basic login function vs customize error login
+  ```
+  // Post to login
+  // router.post('/login', passport.authenticate('local', { failureFlash: 'Invalid username or password.' }), function(req,res) {
+  //   console.log(res);
+  //   res.render('index',{username:req.body.username,user:req.user});
+  // });
+  ```
+  ```
+  // Post to login: need to deal with error information
+  router.post('/login', function(req, res, next) {
+    passport.authenticate('local', function(err, user, info) {
+      if (err) { console.log('1');res.render('login',{message:"Username or Password Wrong"});  }
+      if (!user) { console.log('2');res.render('login',{message:info.message}); }
+      if(user){
+      res.render('index',{username:req.body.username,user:user});
+      }
+      else{
+        res.render('login',{message:'Username and Password not match'});
+      }
+    })(req, res, next);
+  });
+  ```
+
+- Sometimes, we need to define the passport Strategy by our self
+  ```
+  // passport.use(new LocalStrategy(
+  //   function(username, password, done) {
+  //     /* see done being invoked with different paramters
+  //        according to different situations */
+  //     Account.findOne({ username: username }, function (err, user) {
+  //       if (err) { console.log('wrong'); return done(err); }
+  //       if (!user) { console.log('now user'); return done(null, false); }
+  //       // if (!user.verifyPassword(password)) {  console.log('now xx'); return done(null, false); }
+  //       return done(null, user);
+  //     });
+  //   }
+  // ));
+  ```

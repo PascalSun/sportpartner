@@ -43,11 +43,20 @@ router.get('/login', function(req, res) {
   res.render('login', {user: req.user});
 });
 
-// Post to login
-router.post('/login', passport.authenticate('local'), function(req,res) {
-  console.log(res);
-  res.render('index',{username:req.body.username,user:req.user});
+// Post to login: need to deal with error information
+router.post('/login', function(req, res, next) {
+  passport.authenticate('local', function(err, user, info) {
+    if (err) { console.log('1');res.render('login',{message:"Username or Password Wrong"});  }
+    if (!user) { console.log('2');res.render('login',{message:info.message}); }
+    if(user){
+    res.render('index',{username:req.body.username,user:user});
+    }
+    else{
+      res.render('login',{message:'Username and Password not match'});
+    }
+  })(req, res, next);
 });
+
 
 // Logout
 router.get('/logout', function(req, res) {

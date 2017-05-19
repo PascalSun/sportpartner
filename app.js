@@ -11,8 +11,11 @@ var LocalStrategy = require('passport-local').Strategy;
 
 var index = require('./app_server/routes/index');
 var users = require('./app_server/routes/users');
+var flash = require('connect-flash');
+
 
 var app = express();
+app.use(flash());
 
 // view engine setup
 app.set('views', path.join(__dirname, 'app_server' , 'views'));
@@ -38,6 +41,7 @@ app.use('/users', users);
 //passport config
 var Account = require('./app_server/models/account');
 passport.use(new LocalStrategy(Account.authenticate()));
+
 passport.serializeUser(Account.serializeUser());
 passport.deserializeUser(Account.deserializeUser());
 

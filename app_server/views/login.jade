@@ -11,6 +11,9 @@ block content
           legend Login to your Sport Partner account
           br
           p Email:
+          -if(message)
+            alert
+              p(style="font-style:italic;font-size:15px;color:purple") #{message}
           if(username)
             input(type="email",name="username",value="#{username}" required)
           else
