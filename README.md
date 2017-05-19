@@ -3,7 +3,7 @@ MEAN stack project
 
 ## Functions
 - [ ] Basic Views
-- [ ] Register Functions
+- [x] Register Functions
   - [x] Register/Login with passport
   - [x] Validate Password
     - [x] client side
@@ -17,8 +17,8 @@ MEAN stack project
     - [x] view/client side check
     - [x] server side change the password
   - [x] After register, redirect to login page and keep the username and password info
-  - [ ] error handle
-    - [ ] login: how to redirect the Unauthorized white page
+  - [x] error handle
+    - [x] login: how to customize the Unauthorized white page
     - [x] register
 - [ ] Edit profile
 - [ ] Edit prefernece
