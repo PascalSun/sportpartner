@@ -1,7 +1,7 @@
 require('../models/db');
 var express = require('express');
 var router = express.Router();
-var ctrlmain = require('../controller/main');
+// var ctrlmain = require('../controller/main');
 var passport = require('passport');
 var Account = require('../models/account');
 // var adduser = require('../controller/register');
@@ -38,17 +38,60 @@ router.post('/register', function(req, res, next) {
   }
 });
 
+// Get login page
 router.get('/login', function(req, res) {
   res.render('login', {user: req.user});
 });
 
-router.post('/login', passport.authenticate('local'), function(req, res) {
+// Post to login
+router.post('/login', passport.authenticate('local'), function(req,res) {
+  console.log(res);
   res.render('index',{username:req.body.username,user:req.user});
 });
 
+// Logout
 router.get('/logout', function(req, res) {
   req.logout();
   res.redirect('/');
 });
+
+// Get reset password page
+router.get('/reset',function(req,res) {
+  res.render('reset',{user:req.user});
+});
+
+// Post to change the password
+router.post('/reset',function(req,res) {
+  // console.log(req.user.username);
+  // console.log(req.body.newpassword);
+  if(req.user){
+  if(req.user.username==req.body.username){
+  Account.findByUsername(req.body.username).then(function(sanitizedUser){
+      if (sanitizedUser){
+          sanitizedUser.setPassword(req.body.newpassword, function(){
+              sanitizedUser.save();
+              console.log('successful reset');
+              res.redirect('/logout');
+
+          });
+      } else {
+          // res.status(500).json({message: 'This user does not exist'});
+          console.log('no such user');
+          res.render('reset',{error:"No such a User"});
+      }
+  },function(err){
+      console.error(err);
+    })
+  }
+  else{
+      res.render('reset',{error:"Username is not right!",user:req.user});
+  }
+
+  }
+  else{
+      res.render('reset',{error:"Please Login First"});
+  }
+});
+
 
 module.exports = router;

@@ -13,11 +13,13 @@ MEAN stack project
   - [x] Validate email
     - [x] not empty
     - [x] already token
-  - [ ] Change Password
+  - [x] Change Password
+    - [x] view/client side check
+    - [x] server side change the password
   - [x] After register, redirect to login page and keep the username and password info
   - [ ] error handle
-    - [ ] login
-    - [ ] register
+    - [ ] login: how to redirect the Unauthorized white page
+    - [x] register
 - [ ] Edit profile
 - [ ] Edit prefernece
 - [ ] Show matches
@@ -27,6 +29,8 @@ MEAN stack project
 - [ ] Add Functions
   - [ ] Match Online Status
   - [ ] RealTime Chat
+
+## Tests
 
 ## Instructions
 - how to run
