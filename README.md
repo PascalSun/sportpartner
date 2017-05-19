@@ -2,7 +2,7 @@
 MEAN stack project
 
 ## Functions
-- [ ] Basic Views
+- [x] Basic Views
 - [x] Register Functions
   - [x] Register/Login with passport
   - [x] Validate Password
@@ -10,7 +10,7 @@ MEAN stack project
     - [x] server side
       - [x] the same
       - [x] not empty
-  - [x] Validate email
+  - [x] Validate email format
     - [x] not empty
     - [x] already token
   - [x] Change Password
