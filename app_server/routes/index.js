@@ -16,6 +16,8 @@ router.get('/register', function(req, res) {
 
 router.post('/register', function(req, res, next) {
   console.log('registering user');
+  if (req.body.password == req.body.repassword)
+  {
   Account.register(new Account({username: req.body.username}), req.body.password, function(err) {
     if (err) {
       console.log('error while user register!', err);
@@ -25,7 +27,12 @@ router.post('/register', function(req, res, next) {
     console.log('user registered!');
 
     res.redirect('/');
-  });
+    });
+  }
+  else{
+    console.log('Password Not Match');
+    res.redirect('/register');
+  }
 });
 
 router.get('/login', function(req, res) {

@@ -1,6 +1,12 @@
+
 function registerSubmit() {
     if (isValidRegistration()) {
         alert("You have created your account successfully!");
+        return true;
+    }
+    else{
+      document.register.password.focus();
+      return false;
     }
 }
 
@@ -11,7 +17,7 @@ function isValidRegistration() {
 }
 
 function checkPasswords() {
-    var p1 = document.getElementById('password1');
+    var p1 = document.getElementById('password');
     var p2 = document.getElementById('password2');
     if (p1.value.length < 6) {
         alert("Error: The password must contain at least six characters.");
