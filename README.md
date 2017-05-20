@@ -5,7 +5,7 @@ MEAN stack project
 - [x] Basic Views
 - [ ] Set up mongodb
   - [x] local machine
-  - [ ] mLab
+  - [ ] mLab (add in the end, with some test data)
 - [x] Register Functions
   - [x] Register/Login with passport
   - [x] Validate Password
@@ -23,7 +23,16 @@ MEAN stack project
   - [x] error handle
     - [x] login: how to customize the Unauthorized white page
     - [x] register
-- [ ] Edit profile
+- [x] Edit profile
+  - [x] view,models,controller,route framework
+  - [x] autocomplete address via google api
+  - [x] transform address to GeoCode, via client side
+  - [x] store info to database
+  - [x] Decode coordinate to address from server side
+  - [x] User stories
+    - [x] view profile
+    - [x] edit profile
+    - [x] when the user login the first time, then redirect to edit page directly
 - [ ] Edit prefernece
 - [ ] Show matches
   - [ ] Location Based Match
@@ -45,7 +54,11 @@ MEAN stack project
 - About connect-flash: http://mclspace.com/2015/12/03/nodejs-flash-note/
 - Passport.js Document: http://passportjs.org/features
 - Geo Base query via mongodb: https://docs.mongodb.com/manual/core/geospatial-indexes/#GeospatialIndexing-geoNearCommand
-
+- Mongoose Document: http://mongoosejs.com/docs/guide.html
+- Google Map Api: https://developers.google.com/maps/documentation/geocoding/start#header
+- Google Map Console: https://console.developers.google.com/apis/dashboard?project=sportpartner-1495264627869&duration=PT1H
+- Mongoose document: https://scotch.io/tutorials/using-mongoosejs-in-node-js-and-mongodb-applications
+- node-geocoder: https://github.com/nchaulet/node-geocoder
 ## Some Notes
 - basic login function vs customize error login
   ```
@@ -87,4 +100,40 @@ MEAN stack project
   //     });
   //   }
   // ));
+  ```
+- Javascript function won't wait, they are not the same pace
+```
+function geocodeAddress() {
+
+  var geocoder = new google.maps.Geocoder();
+  var address = document.getElementById('address').value;
+  console.log(address);
+
+  geocoder.geocode({'address': address}, function(results, status) {
+    console.log(status)
+
+    if (status === 'OK') {
+      console.log(results[0].geometry.location.lat());
+      console.log(results[0].geometry.location.lng());
+      // document.getElementById('addresslat').setAttribute('value',results[0].geometry.location.lat());
+      // document.getElementById('addresslng').value = results[0].geometry.location.lng();
+
+      document.getElementById('addresslat').value = results[0].geometry.location.lat();
+      document.getElementById('addresslng').value = results[0].geometry.location.lng();
+      console.log(document.profile.addresslat.value);
+      if(document.profile.addresslat.value!==''){
+        document.profile.submit();
+        console.log('here');
+        return true;
+      }
+      else{
+        return false;
+      }
+    } else {
+      alert('Please ensure your address valid!');
+      return false;
+    }
+  });
+  alert('Are you sure to submit?')
+  return false; ///  there must be a return false here
   ```

@@ -11,7 +11,7 @@ block content
           legend Register your Sport Partner account
           br
           p Email:
-          -if(namerror)
+          if(namerror)
             p(style="font-style:italic;font-size:15px;color:purple") #{namerror}
           - var email = "sunqiang93@163.com"
           input(type="email",name="username",value="#{email}" required)

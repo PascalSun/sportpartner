@@ -1,9 +1,13 @@
 var mongoose = require('mongoose');
 
 var detail = new mongoose.Schema(
-    {user_id: String,
-      email: String
+    { email:  { type: String, index: true },
+      sex: String,
+      age: Number,
+      skill: Number,
+      Adress: Array,
+      sports: String
     }
   );
 
-mongoose.model('Detail', detail, 'detail');
+module.exports = mongoose.model('Profile', detail, 'profile');
