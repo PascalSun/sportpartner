@@ -11,6 +11,7 @@ var LocalStrategy = require('passport-local').Strategy;
 
 var index = require('./app_server/routes/index');
 var users = require('./app_server/routes/users');
+var views = require('./app_server/routes/views');
 var flash = require('connect-flash');
 
 
@@ -37,6 +38,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', index);
 app.use('/users', users);
+app.use('/view',views);
 
 //passport config
 var Account = require('./app_server/models/account');

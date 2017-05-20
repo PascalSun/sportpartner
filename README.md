@@ -37,7 +37,8 @@ MEAN stack project
   - [x] models,view,controller,router
   - [x] edit and view preference
 - [ ] Communication:
-  - [ ] view basic profile of other user
+  - [x] view basic profile of other user
+  - [ ] models with visitor and hosts, need to use nested documents
   - [ ] show who view you and who you have viewed
   - [ ] Leave Message/Comments
   - [ ] If possible, Add email notification
