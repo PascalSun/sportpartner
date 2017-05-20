@@ -23,7 +23,7 @@ MEAN stack project
   - [x] error handle
     - [x] login: how to customize the Unauthorized white page
     - [x] register
-- [ ] Edit profile
+- [x] Edit profile
   - [x] view,models,controller,route framework
   - [x] autocomplete address via google api
   - [x] transform address to GeoCode, via client side
