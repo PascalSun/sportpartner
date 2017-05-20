@@ -66,6 +66,15 @@ module.exports.index = function(req,res){
 
             // If the user exists, then count they meet once
 
+            var newview = new Views({
+                host_id:id,
+                vistor_id:req.user._id
+            })
+
+            newview.save(function(err){
+              if(err) throw err;
+              console.log('New Visit');
+            });
 
             }
             // else tell the user, no such users

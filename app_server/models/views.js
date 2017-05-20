@@ -1,11 +1,9 @@
 var mongoose = require('mongoose');
 
 var view = new mongoose.Schema(
-    { host_id:  { type: String, required: true, index: true, unique: true },
-      vistor:{
-        visit_id: String,
-        visit_time: Date
-      }
+    { host_id:  { type: String, required: true,unique: false},
+      vistor_id: {type:String, required: true,unique: false},
+      visit_time: {type:Date, default: Date.now}
     }
   );
 
