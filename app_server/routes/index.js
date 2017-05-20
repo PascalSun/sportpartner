@@ -53,7 +53,8 @@ router.post('/login', function(req, res, next) {
         if (err) {
         res.render('login',{message:'Username and Password not match'});
         }
-        res.render('index',{username:req.body.username,user:user});
+        res.redirect('/users/profile');
+        // res.render('index',{username:req.body.username,user:user});
     });
   })(req, res,next);
 
