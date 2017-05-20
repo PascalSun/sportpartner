@@ -57,14 +57,22 @@ MEAN stack project
   ```
 
 ## Reference
-- About connect-flash: http://mclspace.com/2015/12/03/nodejs-flash-note/
-- Passport.js Document: http://passportjs.org/features
-- Geo Base query via mongodb: https://docs.mongodb.com/manual/core/geospatial-indexes/#GeospatialIndexing-geoNearCommand
-- Mongoose Document: http://mongoosejs.com/docs/guide.html
-- Google Map Api: https://developers.google.com/maps/documentation/geocoding/start#header
-- Google Map Console: https://console.developers.google.com/apis/dashboard?project=sportpartner-1495264627869&duration=PT1H
-- Mongoose document: https://scotch.io/tutorials/using-mongoosejs-in-node-js-and-mongodb-applications
-- node-geocoder: https://github.com/nchaulet/node-geocoder
+- About connect-flash:
+  http://mclspace.com/2015/12/03/nodejs-flash-note/
+- Passport.js Document:
+  http://passportjs.org/features
+- Geo Base query via mongodb:
+  https://docs.mongodb.com/manual/core/geospatial-indexes/#GeospatialIndexing-geoNearCommand
+- Mongoose Document:
+  http://mongoosejs.com/docs/guide.html
+- Google Map Api:
+  https://developers.google.com/maps/documentation/geocoding/start#header
+- Google Map Console:
+  https://console.developers.google.com/apis/dashboard?project=sportpartner-1495264627869&duration=PT1H
+- Mongoose document:
+  https://scotch.io/tutorials/using-mongoosejs-in-node-js-and-mongodb-applications
+- node-geocoder:
+  https://github.com/nchaulet/node-geocoder
 ## Some Notes
 - basic login function vs customize error login
   ```
