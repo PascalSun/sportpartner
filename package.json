@@ -2,6 +2,9 @@
   "name": "sportpartner",
   "version": "0.0.0",
   "private": true,
+  "author": "QIANG SUN",
+  "Time to Start": "2017.05.01",
+  "Email address": "pascalsun23@gmail.com",
   "scripts": {
     "start": "node ./bin/www"
   },
@@ -18,6 +21,7 @@
     "mocha": "^2.5.3",
     "mongoose": "^4.4.19",
     "morgan": "~1.6.1",
+    "node-geocoder": "^3.16.0",
     "passport": "^0.3.2",
     "passport-local": "^1.0.0",
     "passport-local-authenticate": "^1.2.0",

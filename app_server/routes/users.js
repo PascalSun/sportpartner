@@ -1,6 +1,6 @@
 var express = require('express');
 var router = express.Router();
-var routeuser = require('../controller/user');
+var routeuser = require('../controller/profile');
 /* GET users index page */
 router.get('/', routeuser.index);
 

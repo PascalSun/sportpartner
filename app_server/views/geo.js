@@ -79,4 +79,27 @@
 
       }
 
+    function geocodeLatLng(address) {
+
+      var latlng = {lat: parseFloat(address[0]), lng: parseFloat(address[1])};
+      geocoder.geocode({'location': latlng}, function(results, status) {
+        if (status === 'OK') {
+          if (results[1]) {
+            console.log(results[1].formatted_address);
+            // map.setZoom(11);
+            // var marker = new google.maps.Marker({
+            //   position: latlng,
+            //   map: map
+            // });
+            // infowindow.setContent(results[1].formatted_address);
+            // infowindow.open(map, marker);
+          } else {
+            window.alert('No results found');
+          }
+        } else {
+          window.alert('Geocoder failed due to: ' + status);
+        }
+      });
+  }
+
     </script>

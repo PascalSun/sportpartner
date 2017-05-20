@@ -24,9 +24,15 @@ MEAN stack project
     - [x] login: how to customize the Unauthorized white page
     - [x] register
 - [ ] Edit profile
-  - [ ] view,models,controller,route framework
-  - [x] autocomplete address
-  - [x] transform addres to GeoCode
+  - [x] view,models,controller,route framework
+  - [x] autocomplete address via google api
+  - [x] transform address to GeoCode, via client side
+  - [x] store info to database
+  - [x] Decode coordinate to address from server side
+  - [x] User stories
+    - [x] view profile
+    - [x] edit profile
+    - [x] when the user login the first time, then redirect to edit page directly
 - [ ] Edit prefernece
 - [ ] Show matches
   - [ ] Location Based Match
@@ -51,6 +57,8 @@ MEAN stack project
 - Mongoose Document: http://mongoosejs.com/docs/guide.html
 - Google Map Api: https://developers.google.com/maps/documentation/geocoding/start#header
 - Google Map Console: https://console.developers.google.com/apis/dashboard?project=sportpartner-1495264627869&duration=PT1H
+- Mongoose document: https://scotch.io/tutorials/using-mongoosejs-in-node-js-and-mongodb-applications
+- node-geocoder: https://github.com/nchaulet/node-geocoder
 ## Some Notes
 - basic login function vs customize error login
   ```

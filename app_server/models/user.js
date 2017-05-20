@@ -1,7 +1,7 @@
 var mongoose = require('mongoose');
 
 var detail = new mongoose.Schema(
-    { email: String,
+    { email:  { type: String, index: true },
       sex: String,
       age: Number,
       skill: Number,
@@ -10,4 +10,4 @@ var detail = new mongoose.Schema(
     }
   );
 
-mongoose.model('Profile', detail, 'profile');
+module.exports = mongoose.model('Profile', detail, 'profile');
