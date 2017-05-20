@@ -25,8 +25,8 @@ MEAN stack project
     - [x] register
 - [ ] Edit profile
   - [ ] view,models,controller,route framework
-  - [ ] autocomplete address
-  - [ ] transform addres to GeoCode
+  - [x] autocomplete address
+  - [x] transform addres to GeoCode
 - [ ] Edit prefernece
 - [ ] Show matches
   - [ ] Location Based Match
@@ -92,4 +92,40 @@ MEAN stack project
   //     });
   //   }
   // ));
+  ```
+- Javascript function won't wait, they are not the same pace
+```
+function geocodeAddress() {
+
+  var geocoder = new google.maps.Geocoder();
+  var address = document.getElementById('address').value;
+  console.log(address);
+
+  geocoder.geocode({'address': address}, function(results, status) {
+    console.log(status)
+
+    if (status === 'OK') {
+      console.log(results[0].geometry.location.lat());
+      console.log(results[0].geometry.location.lng());
+      // document.getElementById('addresslat').setAttribute('value',results[0].geometry.location.lat());
+      // document.getElementById('addresslng').value = results[0].geometry.location.lng();
+
+      document.getElementById('addresslat').value = results[0].geometry.location.lat();
+      document.getElementById('addresslng').value = results[0].geometry.location.lng();
+      console.log(document.profile.addresslat.value);
+      if(document.profile.addresslat.value!==''){
+        document.profile.submit();
+        console.log('here');
+        return true;
+      }
+      else{
+        return false;
+      }
+    } else {
+      alert('Please ensure your address valid!');
+      return false;
+    }
+  });
+  alert('Are you sure to submit?')
+  return false; ///  there must be a return false here
   ```
