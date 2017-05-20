@@ -17,7 +17,7 @@ MEAN stack project
     - [x] not empty
     - [x] already token
   - [x] Change Password
-    - [x] view/client side check
+    - [x] view, client side check
     - [x] server side change the password
   - [x] After register, redirect to login page and keep the username and password info
   - [x] error handle
@@ -26,18 +26,24 @@ MEAN stack project
 - [x] Edit profile
   - [x] view,models,controller,route framework
   - [x] autocomplete address via google api
-  - [x] transform address to GeoCode, via client side
+  - [x] transform address to coordinate, via client side
   - [x] store info to database
   - [x] Decode coordinate to address from server side
   - [x] User stories
     - [x] view profile
     - [x] edit profile
     - [x] when the user login the first time, then redirect to edit page directly
-- [ ] Edit prefernece
+- [x] Edit prefernece
+  - [x] models,view,controller,router
+  - [x] edit and view preference
+- [ ] Communication:
+  - [ ] view basic profile of other user
+  - [ ] show who view you
+  - [ ] And Leave Message
+  - [ ] Add email notification
 - [ ] Show matches
   - [ ] Location Based Match
   - [ ] Graphic Match Visualization
-- [ ] Communication: Leave Message
 - [ ] Add Functions
   - [ ] Match Online Status
   - [ ] RealTime Chat

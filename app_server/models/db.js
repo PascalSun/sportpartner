@@ -21,3 +21,4 @@ var gracefulShutdown = function (msg,callback){
 };
 
 require('./profile.js');
+require('./prefer.js');
