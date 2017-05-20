@@ -1,4 +1,4 @@
-var Profile = require('../models/user');
+var Profile = require('../models/profile');
 var NodeGeocoder = require('node-geocoder');
 var options = {
   provider: 'google',

@@ -20,4 +20,4 @@ var gracefulShutdown = function (msg,callback){
     });
 };
 
-require('./user.js');
+require('./profile.js');
