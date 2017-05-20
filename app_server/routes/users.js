@@ -1,9 +1,16 @@
 var express = require('express');
 var router = express.Router();
+var routeuser = require('../controller/user');
+/* GET users index page */
+router.get('/', routeuser.index);
 
-/* GET users listing. */
-router.get('/', function(req, res, next) {
-  res.send('respond with a resource');
-});
+/* Get profile page show the profile*/
+router.get('/profile', routeuser.getprofile);
+
+/* Get edit profile page */
+router.get('/editprofile',routeuser.editprofile);
+
+/* Store the edited profile information */
+router.post('/profile',routeuser.storeprofile);
 
 module.exports = router;

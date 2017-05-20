@@ -5,7 +5,7 @@ MEAN stack project
 - [x] Basic Views
 - [ ] Set up mongodb
   - [x] local machine
-  - [ ] mLab
+  - [ ] mLab (add in the end, with some test data)
 - [x] Register Functions
   - [x] Register/Login with passport
   - [x] Validate Password
@@ -24,6 +24,9 @@ MEAN stack project
     - [x] login: how to customize the Unauthorized white page
     - [x] register
 - [ ] Edit profile
+  - [ ] view,models,controller,route framework
+  - [ ] autocomplete address
+  - [ ] transform addres to GeoCode
 - [ ] Edit prefernece
 - [ ] Show matches
   - [ ] Location Based Match
@@ -45,7 +48,9 @@ MEAN stack project
 - About connect-flash: http://mclspace.com/2015/12/03/nodejs-flash-note/
 - Passport.js Document: http://passportjs.org/features
 - Geo Base query via mongodb: https://docs.mongodb.com/manual/core/geospatial-indexes/#GeospatialIndexing-geoNearCommand
-
+- Mongoose Document: http://mongoosejs.com/docs/guide.html
+- Google Map Api: https://developers.google.com/maps/documentation/geocoding/start#header
+- Google Map Console: https://console.developers.google.com/apis/dashboard?project=sportpartner-1495264627869&duration=PT1H
 ## Some Notes
 - basic login function vs customize error login
   ```
