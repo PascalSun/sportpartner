@@ -29,7 +29,7 @@ module.exports.index = function(req, res) {
       if (err) throw err;
       if(user[0]){
         console.log(user);
-        res.redirect('/users/profile');
+        res.render('user',{user:req.user});
       }
       else{
         console.log('edit');

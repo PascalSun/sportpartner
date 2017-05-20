@@ -38,9 +38,9 @@ MEAN stack project
   - [x] edit and view preference
 - [ ] Communication:
   - [ ] view basic profile of other user
-  - [ ] show who view you
-  - [ ] And Leave Message
-  - [ ] Add email notification
+  - [ ] show who view you and who you have viewed
+  - [ ] Leave Message/Comments
+  - [ ] If possible, Add email notification
 - [ ] Show matches
   - [ ] Location Based Match
   - [ ] Graphic Match Visualization
