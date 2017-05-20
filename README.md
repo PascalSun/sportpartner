@@ -39,7 +39,7 @@ MEAN stack project
 - [ ] Communication:
   - [x] view basic profile of other user
   - [x] models stored visitor and hosts
-  - [ ] show who view you and who you have viewed
+  - [x] list who view you and who you have viewed
   - [ ] Leave Message/Comments
   - [ ] If possible, Add email notification
 - [ ] Show matches
@@ -152,3 +152,4 @@ function geocodeAddress() {
   alert('Are you sure to submit?')
   return false; ///  there must be a return false here
   ```
+- The mongoose query callback is really disaster, need to find some solutions.

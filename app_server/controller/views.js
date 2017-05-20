@@ -67,7 +67,9 @@ module.exports.index = function(req,res){
             // If the user exists, then count they meet once
 
             var newview = new Views({
-                host_id:id,
+                host_username:user[0].username,
+                vistor_username:req.user.username,
+                host_id:user[0]._id,
                 vistor_id:req.user._id
             })
 
@@ -91,4 +93,36 @@ module.exports.index = function(req,res){
     else{
       res.redirect('/login');
     }
+};
+
+module.exports.list = function(req,res){
+  if(req.user){
+    var listid = req.query.listid;
+    if(listid == 1){
+      /* show who the user visit*/
+       Views.find({vistor_username:req.user.username},function(err,visitor){
+        // find all the hosts and the username
+
+        res.render('view',{users:visitor,listid:1});
+
+      });
+
+    }
+    else
+    {
+      /* show who the user visit*/
+       Views.find({host_username:req.user.username},function(err,visitor){
+        // find all the hosts and the username
+
+        res.render('view',{users:visitor,listid:2});
+
+      });
+    }
+  }
+  else{
+    res.redirect('/login');
+  }
+
+
+
 };
