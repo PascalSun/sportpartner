@@ -1,9 +1,9 @@
 var mongoose = require('mongoose');
 
-var simpleSchema = new mongoose.Schema(
-    {password: String,
+var detail = new mongoose.Schema(
+    {user_id: String,
       email: String
     }
   );
 
-mongoose.model('User', simpleSchema, 'user');
+mongoose.model('Detail', detail, 'detail');

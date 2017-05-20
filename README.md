@@ -44,6 +44,7 @@ MEAN stack project
 ## Reference
 - About connect-flash: http://mclspace.com/2015/12/03/nodejs-flash-note/
 - Passport.js Document: http://passportjs.org/features
+- Geo Base query via mongodb: https://docs.mongodb.com/manual/core/geospatial-indexes/#GeospatialIndexing-geoNearCommand
 
 ## Some Notes
 - basic login function vs customize error login

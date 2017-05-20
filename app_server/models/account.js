@@ -8,9 +8,5 @@ var Account = new Schema({
     password:String
 })
 
-Account.methods.verifyPassword = function( pwd ) {
-    // EXAMPLE CODE!
-    return ( this.password === pwd );
-};
 Account.plugin(passportLocalMongoose);
 module.exports = mongoose.model("Account",Account);
