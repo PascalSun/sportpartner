@@ -77,6 +77,8 @@ MEAN stack project
   https://github.com/nchaulet/node-geocoder
 - node-sendmail:  
   http://javascript.tutorialhorizon.com/2015/07/02/send-email-node-js-express/
+- nodemailer:
+  https://github.com/nodemailer/nodemailer
 ## Some Notes
 - basic login function vs customize error login
   ```
