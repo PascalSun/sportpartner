@@ -139,6 +139,7 @@ module.exports.storeprofile = function(req,res){
 
     // test the address from server
     geocoder.reverse({lat:lat, lon:lng}, function(err, location) {
+        if (err) throw err;
         console.log(location[0].formattedAddress);
         var formaladdress;
         formaladdress = location[0].formattedAddress;

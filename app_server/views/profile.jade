@@ -24,6 +24,20 @@ block content
             p
               button
                 a(href="./editprofile") Edit your Profile
+          else if (view)
+            legend The Sport Partner's Profile
+            br
+            if(viewerror)
+              p(style="font-style:italic;font-size:15px;color:purple") #{viewerror}
+            else        
+              p Username: #{view.email}
+              p Sex: #{view.sex}
+              p Age: #{view.age}
+              p Favorite Sports: #{view.sports}
+              p Skill Degree: #{view.skill}
+              p Address:
+              p #{address}
+              p        
           else
             legend Edit your Sport Partner Profile
             br
