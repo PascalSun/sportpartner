@@ -49,7 +49,14 @@ MEAN stack project
 - [ ] Bonus Functions
   - [ ] Match Online Status
   - [ ] RealTime Chat
-
+## Pages
+  - [ ] Instructions about how to launching on a cloud platform
+  - [x] user data collection
+  - [ ] display match
+  - [ ] explain match algorithm
+  - [ ] describe what architecture used, choices made, difficulities faced
+  - [ ] About test / validation Strategy and results
+  - [ ] Introduction and references
 ## Tests
 
 ## Instructions
