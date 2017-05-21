@@ -41,12 +41,12 @@ MEAN stack project
   - [x] models stored visitor and hosts
   - [x] list who view you and who you have viewed
   - [x] Leave Message
-  - [ ] See who are connected with you
+  - [x] See who are contacting with you
   - [ ] If possible, Add email notification
 - [ ] Show matches
   - [ ] Location Based Match
   - [ ] Graphic Match Visualization
-- [ ] Add Functions
+- [ ] Bonus Functions
   - [ ] Match Online Status
   - [ ] RealTime Chat
 
