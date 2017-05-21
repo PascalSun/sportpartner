@@ -1,7 +1,12 @@
 var mongoose = require('mongoose');
 // Connect to mlab here, just use to do some experiment now
 // mongodb://pascalsun:sunQIANG9337@ds137891.mlab.com:37891/pascalsun
+
+// local environment
 var dbURI = 'mongodb://localhost:27017/sportpartner';
+
+/*cloud platform for mongoose, mLab*/
+// var dbURI = "mongodb://pascalsun:sunQIANG9337@ds137891.mlab.com:37891/pascalsun";
 mongoose.connect(dbURI);
 
 mongoose.connection.on('connected', function () {
