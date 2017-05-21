@@ -99,23 +99,34 @@ module.exports.list = function(req,res){
   if(req.user){
     var listid = req.query.listid;
     if(listid == 1){
-      /* show who the user visit*/
-       Views.find({vistor_username:req.user.username},function(err,visitor){
-        // find all the hosts and the username
+      // /* show who the user visit*/
+      //  Views.find({vistor_username:req.user.username},function(err,visitor){
+      //   // find all the hosts and the username
+      //   console.log(visitor);
+      //   res.render('view',{users:visitor,listid:1});
+      //
+      // });
 
-        res.render('view',{users:visitor,listid:1});
-
+      var q = Views.find({vistor_username:req.user.username}).sort({visit_time:-1}).limit(5);
+      q.exec(function(err,visitor){
+        console.log(visitor);
+        res.render("view",{users:visitor,listed:1});
       });
 
     }
     else
     {
       /* show who the user visit*/
-       Views.find({host_username:req.user.username},function(err,visitor){
-        // find all the hosts and the username
+      //  Views.find({host_username:req.user.username},function(err,visitor){
+      //   // find all the hosts and the username
+      //
+      //   res.render('view',{users:visitor,listid:2});
+      //
+      // });
 
-        res.render('view',{users:visitor,listid:2});
-
+      var q = Views.find({host_username:req.user.username}).sort({visit_time:-1}).limit(5);
+      q.exec(function(err,visitor){
+        res.render("view",{users:visitor,listid:2});
       });
     }
   }
