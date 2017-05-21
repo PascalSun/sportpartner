@@ -36,13 +36,13 @@ MEAN stack project
 - [x] Edit prefernece
   - [x] models,view,controller,router
   - [x] edit and view preference
-- [ ] Communication:
+- [x] Communication:
   - [x] view basic profile of other user
   - [x] models stored visitor and hosts
   - [x] list who view you and who you have viewed
   - [x] Leave Message
   - [x] See who are contacting with you
-  - [x] If possible, Add email notification: Use mailgun to send email to the user when some leave message for the use 
+  - [x] If possible, Add email notification: Use mailgun to send email to the user when some leave message for the use
 - [ ] Show matches
   - [ ] Location Based Match
   - [ ] Graphic Match Visualization
