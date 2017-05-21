@@ -1,5 +1,6 @@
 var mongoose = require('mongoose');
 // Connect to mlab here, just use to do some experiment now
+// mongodb://pascalsun:sunQIANG9337@ds137891.mlab.com:37891/pascalsun
 var dbURI = 'mongodb://localhost:27017/sportpartner';
 mongoose.connect(dbURI);
 
