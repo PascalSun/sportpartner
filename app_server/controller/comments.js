@@ -1,5 +1,7 @@
 var Comments = require('../models/comments');
 var Account = require('../models/account');
+var nodemailer = require("nodemailer");
+
 
 module.exports.index = function(req,res){
   if(req.user){
@@ -92,6 +94,29 @@ module.exports.comments = function(req,res){
           if(err) throw err;
           console.log('New Comments');
         });
+
+        var transporter = nodemailer.createTransport( {
+            service:  'Mailgun',
+            auth: {
+             user: 'postmaster@email.chinawhver.net',
+             pass: '70ae1d0e60febe4365e6882d6913b45a'
+            }
+        });
+        var mailOpts = {
+            from: 'SportPartner@sportpartner.com',
+            to: host,
+            subject: 'Some Leave You a Message',
+            text : commentbody,
+            html : '<p>Message From: '+req.user.username+'</p><p><b>'+commentbody+'</b></p>'
+        };
+        transporter.sendMail(mailOpts, function (err, response) {
+            if (err) {
+              console.log(err);
+            } else {
+              console('send');
+            }
+        });
+
       res.redirect('/view/comment/'+'?username='+host);
     }
     else{

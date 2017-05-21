@@ -42,7 +42,7 @@ MEAN stack project
   - [x] list who view you and who you have viewed
   - [x] Leave Message
   - [x] See who are contacting with you
-  - [ ] If possible, Add email notification
+  - [x] If possible, Add email notification: Use mailgun to send email to the user when some leave message for the use 
 - [ ] Show matches
   - [ ] Location Based Match
   - [ ] Graphic Match Visualization
