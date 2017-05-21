@@ -13,6 +13,23 @@ block content
       div.col-lg-10.col-lg-offset-1.col-md-10.col-md-offset-1.col-sm-10.col-sm-offset-1
         div.twt-wrapper
           div.panel.panel-info
+            if(all)
+              div.panel-heading
+                legend Partners who leave messages to you
+              div.panel-body
+                div(class="clearfix")
+                  div.media-body
+                    ul.media-list
+                      for sender in all
+                        li.media
+                          div.media-body
+                            span(class="text-muted pull-right") &nbsp;&nbsp;&nbsp;&nbsp;
+                              small.text-muted Recently #{tolocal(sender.created_time)}
+                            strong(class="text-success")
+                              a(href="/view/comment?username=#{sender.sender}") #{sender.sender}
+                            span(class="text-muted pull-right") 
+                              small.text-muted Total #{sender.Count}
+                            p #{sender.commentbody}
             if(host)
               div.panel-heading
                 legend  Messages between you and 
@@ -24,24 +41,26 @@ block content
                   input(type="hidden",name="host_username",value="#{host.username}")
                   input(type="submit",class="btn btn-primary btn-sm pull-right",value="Submit")
                   input(type="button",value="Refresh",onClick="window.location.reload()",class="btn btn-primary btn-sm pull-left")
+                  input(type="button",class="btn btn-primary btn-sm pull-left",onclick="location.href='/view/comment'",value="See All")
+        
                 br
             if(error)
                 script alert("#{error}")
             
             if(messages)
-            div.panel-body
-              div(class="clearfix")
-                div.media-body
-                    ul.media-list
-                      for message in messages
-                        li.media
-                          div.media-body
-                            span(class="text-muted pull-right") 
-                              small.text-muted #{tolocal(message.created_time)} &nbsp;&nbsp;&nbsp;&nbsp;
-                            strong(class="text-success") 
-                              if(message.sender==user.username)
-                                a(href="/view?id=#{message.sender_id}") You
-                              else
-                                a(href="/view?id=#{message.sender_id}") #{message.sender}
-                            p  #{message.commentbody}
+              div.panel-body
+                div(class="clearfix")
+                  div.media-body
+                      ul.media-list
+                        for message in messages
+                          li.media
+                            div.media-body
+                              span(class="text-muted pull-right") 
+                                small.text-muted #{tolocal(message.created_time)} &nbsp;&nbsp;&nbsp;&nbsp;
+                              strong(class="text-success") 
+                                if(message.sender==user.username)
+                                  a(href="/view?id=#{message.sender_id}") You
+                                else
+                                  a(href="/view?id=#{message.sender_id}") #{message.sender}
+                              p  #{message.commentbody}
     div(class="clearfix" style="margin-top:600px;")

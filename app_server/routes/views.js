@@ -13,4 +13,5 @@ router.get('/comment',commenthandle.index);
 
 /* Store comments*/
 router.post('/comment',commenthandle.comments);
+
 module.exports = router;

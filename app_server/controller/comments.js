@@ -19,17 +19,48 @@ module.exports.index = function(req,res){
             }
             else{
               res.render('comments',{user:req.user,host:hosts});
-              // res.send('tocomment');
             }
           });
         }
         else{
-          res.send('no such guy')
+          res.render('profile',{user:req.user,viewerror:'No Such User',view:'error'});
         }
       });
     }
     else{
-      res.send('redirect to all comment page');
+      // List all the people who send messsage to you
+
+      Comments.aggregate()
+        .match({reciever:req.user.username})
+        .sort("-created_time")
+        .project(
+          {
+          '_id':1,
+          "sender_id":1,
+          "sender":1,
+          "commentbody":1,
+          "created_time":1
+        })
+        .group({
+           _id:"$sender_id",
+           sender:{$first:"$sender"},
+           created_time: {$first:"$created_time"}, // we need some stats for each group (for each district)
+           commentbody: {$first:'$commentbody'},
+           Count: { $sum: 1 }
+         }
+        )
+        .exec(function(errs,doc){
+          if(errs) throw errs;
+          // sort the outcome, so the latest will show on the first one
+          doc.sort(function(a,b){
+                var c = new Date(a.created_time);
+                var d = new Date(b.created_time);
+                return d-c;
+                });
+
+          res.render('comments',{user:req.user,all:doc});
+        });
+
     }
 
   }
@@ -39,7 +70,7 @@ module.exports.index = function(req,res){
 
 }
 
-
+// Store Comments
 module.exports.comments = function(req,res){
   if(req.user){
     console.log(req.body.comments);
