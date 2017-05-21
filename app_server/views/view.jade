@@ -15,7 +15,7 @@ block content
         for user in users
           p Time: #{tolocal(user.visit_time)}
           if(listid==1)
-            p Visited
+            p Visited 
               a(href="/view?id=#{user.host_id}",style="color:purple") #{user.host_username} 
           else
             p Partner 
