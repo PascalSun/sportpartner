@@ -1,0 +1,47 @@
+extends layout
+block link
+  link(rel='stylesheet', href='/stylesheets/login.css')
+  link(rel='stylesheet', href='/stylesheets/index.css')
+  link(rel='stylesheet', href='/stylesheets/bootstrap.css')
+  <style type="text/css">.cf-hidden { display: none; } .cf-invisible { visibility: hidden; }</style>
+  -  function tolocal(s) { return s.toLocaleString(); };
+block content
+  div.container
+    div(class="clearfix" style="margin-bottom:100px;")
+
+    div.row
+      div.col-lg-10.col-lg-offset-1.col-md-10.col-md-offset-1.col-sm-10.col-sm-offset-1
+        div.twt-wrapper
+          div.panel.panel-info
+            if(host)
+              div.panel-heading
+                legend  Messages between you and 
+                  a(href="/view?id=#{host._id}") #{host.username}
+              div.panel-body
+                form(method="post",action="/view/comment")
+                  textarea(class="form-control",name='comments',placeholder="Leave Your message" required)
+                  br
+                  input(type="hidden",name="host_username",value="#{host.username}")
+                  input(type="submit",class="btn btn-primary btn-sm pull-right",value="Submit")
+                  input(type="button",value="Refresh",onClick="window.location.reload()",class="btn btn-primary btn-sm pull-left")
+                br
+            if(error)
+                script alert("#{error}")
+            
+            if(messages)
+            div.panel-body
+              div(class="clearfix")
+                div.media-body
+                    ul.media-list
+                      for message in messages
+                        li.media
+                          div.media-body
+                            span(class="text-muted pull-right") 
+                              small.text-muted #{tolocal(message.created_time)} &nbsp;&nbsp;&nbsp;&nbsp;
+                            strong(class="text-success") 
+                              if(message.sender==user.username)
+                                a(href="/view?id=#{message.sender_id}") You
+                              else
+                                a(href="/view?id=#{message.sender_id}") #{message.sender}
+                            p  #{message.commentbody}
+    div(class="clearfix" style="margin-top:600px;")

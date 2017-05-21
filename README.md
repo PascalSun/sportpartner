@@ -40,7 +40,8 @@ MEAN stack project
   - [x] view basic profile of other user
   - [x] models stored visitor and hosts
   - [x] list who view you and who you have viewed
-  - [ ] Leave Message/Comments
+  - [x] Leave Message
+  - [ ] See who are connected with you
   - [ ] If possible, Add email notification
 - [ ] Show matches
   - [ ] Location Based Match
@@ -74,6 +75,8 @@ MEAN stack project
   https://scotch.io/tutorials/using-mongoosejs-in-node-js-and-mongodb-applications
 - node-geocoder:
   https://github.com/nchaulet/node-geocoder
+- node-sendmail:  
+  http://javascript.tutorialhorizon.com/2015/07/02/send-email-node-js-express/
 ## Some Notes
 - basic login function vs customize error login
   ```
