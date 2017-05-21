@@ -53,7 +53,7 @@ module.exports.getprofile = function(req,res){
           // there is a profile for the user, then show it
           console.log(user[0]);
           // decode the location, and return as location
-          geocoder.reverse({lat:user[0].Adress[0], lon:user[0].Adress[1]}, function(err, location) {
+          geocoder.reverse({lat:user[0].Adress[1], lon:user[0].Adress[0]}, function(err, location) {
             if(err) throw err;
             console.log(location[0].formattedAddress);
             var formaladdress;
@@ -92,7 +92,7 @@ module.exports.editprofile = function(req,res){
           // there is a profile for the user, then show it
           console.log(user[0]);
           // decode the location, and return as location
-          geocoder.reverse({lat:user[0].Adress[0], lon:user[0].Adress[1]}, function(errs, location) {
+          geocoder.reverse({lat:user[0].Adress[1], lon:user[0].Adress[0]}, function(errs, location) {
             if(errs) throw errs;
             console.log(location[0].formattedAddress);
             var formaladdress;
@@ -137,7 +137,7 @@ module.exports.storeprofile = function(req,res){
     var sport = req.body.sports;
     var lat = req.body.addresslat;
     var lng = req.body.addresslng;
-    var address = [lat,lng];
+    var address = [lng,lat];
 
     // test the address from server
     geocoder.reverse({lat:lat, lon:lng}, function(err, location) {

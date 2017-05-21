@@ -12,6 +12,8 @@ var LocalStrategy = require('passport-local').Strategy;
 var index = require('./app_server/routes/index');
 var users = require('./app_server/routes/users');
 var views = require('./app_server/routes/views');
+var matchs = require('./app_server/routes/match');
+
 var flash = require('connect-flash');
 
 
@@ -36,10 +38,10 @@ app.use(passport.session());
 //end for passport
 app.use(express.static(path.join(__dirname, 'public')));
 
-app.use('/', index);
-app.use('/users', users);
-app.use('/view',views);
-
+app.use('/', index);   // get index page and register/login
+app.use('/users', users); // edit user profile and preference
+app.use('/view',views);  // view and communication features
+app.use('/match',matchs); // match features
 //passport config
 var Account = require('./app_server/models/account');
 passport.use(new LocalStrategy(Account.authenticate()));
