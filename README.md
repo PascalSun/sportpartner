@@ -49,7 +49,7 @@ MEAN stack project
     - [ ] Match all people, around, and show on the map
     - [x] Match people meet prefer, show as a list
     - [ ] and if possible, show on the map
-    - [ ] use rest API, make prefer can be changed, and show the results at the same time
+    - [ ] use rest API, and Angular, not need to change prefer data, show the results
   - [ ] Graphic Match Visualization
 - [ ] Bonus Functions
   - [ ] Match Online Status

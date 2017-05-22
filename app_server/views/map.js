@@ -3,7 +3,7 @@
   function initialize() {
     var home = { lat: dist[0].Adress[1], lng: dist[0].Adress[0] };
     var map = new google.maps.Map(document.getElementById('map'), {
-      zoom: 10,
+      zoom: 12,
       center: home
     });
     // show the home info
@@ -46,6 +46,9 @@
   }
 
 </script>
+
+
+
 <style>
   /* Always set the map height explicitly to define the size of the div
    * element that contains the map. */
