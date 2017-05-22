@@ -9,9 +9,9 @@
 
   function initialize() {
     var bangalore = { lat: 12.97, lng: 77.59 };
-    // console.log(dist[0]);
-    // console.log(dist[0]);
-    // console.log(dist);
+    console.log(dist[0].email);
+    console.log(dist[0]._id);
+    console.log(dist);
     var map = new google.maps.Map(document.getElementById('map'), {
       zoom: 12,
       center: bangalore
