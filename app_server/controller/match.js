@@ -30,6 +30,7 @@ module.exports.index = function(req,res){
                   '_id':1,
                   'email':1,
                   'sexdiff':{$eq:["$sex",sex]},
+                  'sports':1,
                   'sportsdiff':{$eq:["$sports",sports]},
                   'agediff':{$abs:{$subtract:["$age",agewant]}},
                   'age':1,
