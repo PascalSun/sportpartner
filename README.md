@@ -47,7 +47,7 @@ MEAN stack project
 - [ ] Show matches
   - [ ] Location Based Match
     - [ ] Match all people, around, and show on the map
-    - [ ] Match people meet prefer, show as a list
+    - [x] Match people meet prefer, show as a list
     - [ ] and if possible, show on the map
     - [ ] use rest API, make prefer can be changed, and show the results at the same time
   - [ ] Graphic Match Visualization
