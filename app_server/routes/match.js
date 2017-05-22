@@ -5,7 +5,7 @@ var handlematch = require('../controller/match');
 /* GET home page of match */
 router.get('/',handlematch.index);
 
-
+router.get('/map',handlematch.map);
 
 
 module.exports = router;

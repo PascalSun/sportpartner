@@ -62,6 +62,7 @@ module.exports.index = function(req,res){
                 if(errs) throw errs;
                 console.log(dis);
                 res.render('match',{user:req.user,partners:dis});
+                // res.render('map',{user:req.user,dist:dis});
               })
           }
           else{
@@ -77,4 +78,7 @@ module.exports.index = function(req,res){
   else{
     res.redirect('/login');
   }
+};
+module.exports.map = function(req,res){
+  res.render('map',{user:req.user,dist:[{test:'xxx'}]});
 };
