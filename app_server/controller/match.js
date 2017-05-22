@@ -21,17 +21,21 @@ module.exports.index = function(req,res){
               .near(
                 {
                   near:loc,
-                  distanceField: "dist"
+                  distanceField: "dist",
+                  spherical: true
                 }
               )
               .project(
                 {
                   '_id':1,
                   'email':1,
-                  'sex':{$eq:["$sex",sex]},
-                  'sports':{$eq:["$sports",sports]},
+                  'sexdiff':{$eq:["$sex",sex]},
+                  'sportsdiff':{$eq:["$sports",sports]},
                   'agediff':{$abs:{$subtract:["$age",agewant]}},
+                  'age':1,
+                  'sex':1,
                   'skilldiff':{$abs:{$subtract:["$skill",skillwant]}},
+                  'skill':1,
                   'Adress':1,
                   'dist':1
                 }
@@ -41,9 +45,13 @@ module.exports.index = function(req,res){
                   'diff':{$add:["$skilldiff",{$divide:["$agediff",5]},{$multiply:["$dist",200]}]},
                   '_id':1,
                   'email':1,
+                  'sexdiff':1,
                   'sex':1,
                   'agediff':1,
+                  'age':1,
                   'skilldiff':1,
+                  'skill':1,
+                  'sportsdiff':1,
                   'sports':1,
                   'Adress':1,
                   'dist':1
@@ -53,7 +61,7 @@ module.exports.index = function(req,res){
               .exec(function(errs,dis){
                 if(errs) throw errs;
                 console.log(dis);
-                res.send(dis);
+                res.render('match',{user:req.user,partners:dis});
               })
           }
           else{

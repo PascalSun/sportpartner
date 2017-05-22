@@ -79,20 +79,17 @@
 
       }
 
-    function geocodeLatLng(address) {
-
-      var latlng = {lat: parseFloat(address[0]), lng: parseFloat(address[1])};
+    function geocodeLatLng(address,id) {
+      console.log(address);
+      console.log(id);
+      var geocoder = new google.maps.Geocoder();
+      var latlng = {lat: parseFloat(address[1]), lng: parseFloat(address[0])};
       geocoder.geocode({'location': latlng}, function(results, status) {
         if (status === 'OK') {
           if (results[1]) {
             console.log(results[1].formatted_address);
-            // map.setZoom(11);
-            // var marker = new google.maps.Marker({
-            //   position: latlng,
-            //   map: map
-            // });
-            // infowindow.setContent(results[1].formatted_address);
-            // infowindow.open(map, marker);
+            document.getElementById(id).innerHTML = results[1].formatted_address;
+            document.getElementsByName(id)[0].style.display = 'none';
           } else {
             window.alert('No results found');
           }
