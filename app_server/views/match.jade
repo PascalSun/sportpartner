@@ -20,33 +20,45 @@ block content
               legend  Partners Meets your Requirements
                
             div.panel-body
+              include geo.js
               p
               form(method="post",action="/match",class="form-inline justified")
                 div.form-group
-                  div.col-xs-4
-                    label Sex&nbsp;&nbsp;&nbsp;&nbsp;
+                  div.col-xs-3
+                    label Sex &nbsp;&nbsp;
                     select(class="form-control")
-                      option(value = "Basketball") Basketball &nbsp;&nbsp;
-                  div.col-xs-4
-                    label Age  &nbsp;&nbsp;
-                    select(class="form-control")
-                      option(value = "Basketball") Basketball &nbsp;&nbsp;
+                      option(value = "Any" selected) Any &nbsp;&nbsp;
+                      option(value = "Male") Male &nbsp;&nbsp;
+                      option(value = "Female") Female &nbsp;&nbsp;
                   div.col-xs-4
                     label Sports  &nbsp;&nbsp;
                       select(class="form-control")
+                        option(value = "Any" selected) Any &nbsp;&nbsp;
                         option(value = "Basketball") Basketball &nbsp;&nbsp; 
-                  div.col-xs-4 
+                        option(value = "Football") Football &nbsp;&nbsp; 
+                        option(value = "Fitness") Fitness &nbsp;&nbsp; 
+                        option(value = "Swimmning") Swimmning &nbsp;&nbsp; 
+                        option(value = "Running") Running &nbsp;&nbsp; 
+                  div.col-xs-2 
                     label Skill  &nbsp;&nbsp;
-                      select(class="form-control")
-                        option(value = "Basketball") Basketball &nbsp;&nbsp; 
+                      select(class="form-control",col="10")
+                        option(value = '0' selected) 0
+                        - for (var i = 1; i < 11; ++i) 
+                          option(value = "#{i}") #{i}
+                  
+                        
+                  div.col-xs-3
+                    label Age  &nbsp;&nbsp;&nbsp;
+                    input(class="form-control",type="Number",max=100,min=0,value="25")
                   div.col-xs-8
                     label Address &nbsp;&nbsp;
-                    input(type="text",class="form-control")
+                    input(type="text",class="form-control",id="address")
                 p
                 input(type="hidden")
-                input(type="submit",class="btn btn-primary btn-sm pull-right",value="Find")
-                input(type="button",class="btn btn-primary btn-sm pull-right",onclick="location.href='users/prefer?edit=1'",value="Edit Prefer")
+                
                 input(type="button",value="Refresh",onClick="window.location.reload()",class="btn btn-primary btn-sm pull-left")
+                input(type="button",class="btn btn-primary btn-sm pull-right",onclick="location.href='users/prefer?edit=1'",value="Edit Prefer")
+                input(type="submit",class="btn btn-primary btn-sm pull-right",value="Find")
                 
                 input(type="button",class="btn btn-primary btn-sm pull-left",onclick="location.href='/match?map=1'",value="Map")
               br

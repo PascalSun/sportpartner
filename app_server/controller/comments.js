@@ -31,38 +31,71 @@ module.exports.index = function(req,res){
     }
     else{
       // List all the people who send messsage to you
+      if(req.query.id!=1){
+        Comments.aggregate()
+          .match({reciever:req.user.username})
+          .sort("-created_time")
+          .project(
+            {
+            '_id':1,
+            "sender_id":1,
+            "sender":1,
+            "commentbody":1,
+            "created_time":1
+          })
+          .group({
+             _id:"$sender_id",
+             sender:{$first:"$sender"},
+             created_time: {$first:"$created_time"}, // we need some stats for each group (for each district)
+             commentbody: {$first:'$commentbody'},
+             Count: { $sum: 1 }
+           }
+          )
+          .exec(function(errs,doc){
+            if(errs) throw errs;
+            // sort the outcome, so the latest will show on the first one
+            doc.sort(function(a,b){
+                  var c = new Date(a.created_time);
+                  var d = new Date(b.created_time);
+                  return d-c;
+                  });
 
-      Comments.aggregate()
-        .match({reciever:req.user.username})
-        .sort("-created_time")
-        .project(
-          {
-          '_id':1,
-          "sender_id":1,
-          "sender":1,
-          "commentbody":1,
-          "created_time":1
-        })
-        .group({
-           _id:"$sender_id",
-           sender:{$first:"$sender"},
-           created_time: {$first:"$created_time"}, // we need some stats for each group (for each district)
-           commentbody: {$first:'$commentbody'},
-           Count: { $sum: 1 }
-         }
-        )
-        .exec(function(errs,doc){
-          if(errs) throw errs;
-          // sort the outcome, so the latest will show on the first one
-          doc.sort(function(a,b){
-                var c = new Date(a.created_time);
-                var d = new Date(b.created_time);
-                return d-c;
-                });
+            res.render('comments',{user:req.user,all:doc,who:1});
+          });
 
-          res.render('comments',{user:req.user,all:doc});
-        });
+      }
+      else{
+        Comments.aggregate()
+          .match({sender:req.user.username})
+          .sort("-created_time")
+          .project(
+            {
+            '_id':1,
+            "reciever":1,
+            "commentbody":1,
+            "created_time":1
+          })
+          .group({
+             _id:"$sender_id",
+             reciever:{$first:"$reciever"},
+             created_time: {$first:"$created_time"}, // we need some stats for each group (for each district)
+             commentbody: {$first:'$commentbody'},
+             Count: { $sum: 1 }
+           }
+          )
+          .exec(function(errs,doc){
+            if(errs) throw errs;
+            // sort the outcome, so the latest will show on the first one
+            doc.sort(function(a,b){
+                  var c = new Date(a.created_time);
+                  var d = new Date(b.created_time);
+                  return d-c;
+                  });
+            console.log(doc);
 
+            res.render('comments',{user:req.user,all:doc,who:null});
+          });
+      }
     }
 
   }

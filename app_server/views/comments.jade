@@ -15,7 +15,15 @@ block content
           div.panel.panel-info
             if(all)
               div.panel-heading
-                legend Partners who leave messages to you
+                if(who)
+                  legend Partners leave messages to you
+                else
+                  legend Partners you leave messages to
+              div.panel-body
+                input(type="button",value="Refresh",onClick="window.location.reload()",class="btn btn-primary btn-sm pull-right")
+                input(type="button",class="btn btn-primary btn-sm pull-left",onclick="location.href='/view/comment'",value="Inbox")
+                input(type="button",class="btn btn-primary btn-sm pull-left",onclick="location.href='/view/comment?id=1'",value="SendBox")
+                input(type="button",class="btn btn-primary btn-sm pull-left",onclick="location.href='/match?map=1'",value="Find Some Partners")
               div.panel-body
                 div(class="clearfix")
                   div.media-body
@@ -26,7 +34,10 @@ block content
                             span(class="text-muted pull-right") &nbsp;&nbsp;&nbsp;&nbsp;
                               small.text-muted Recently #{tolocal(sender.created_time)}
                             strong(class="text-success")
-                              a(href="/view/comment?username=#{sender.sender}") #{sender.sender}
+                              if(sender.sender)
+                                a(href="/view/comment?username=#{sender.sender}") #{sender.sender}
+                              else
+                                a(href="/view/comment?username=#{sender.reciever}") #{sender.reciever}
                             span(class="text-muted pull-right") 
                               small.text-muted Total #{sender.Count}
                             p #{sender.commentbody}
@@ -41,8 +52,9 @@ block content
                   input(type="hidden",name="host_username",value="#{host.username}")
                   input(type="submit",class="btn btn-primary btn-sm pull-right",value="Submit")
                   input(type="button",value="Refresh",onClick="window.location.reload()",class="btn btn-primary btn-sm pull-left")
-                  input(type="button",class="btn btn-primary btn-sm pull-left",onclick="location.href='/view/comment'",value="All Messages")
-        
+                  input(type="button",class="btn btn-primary btn-sm pull-left",onclick="location.href='/view/comment'",value="Inbox")
+                  input(type="button",class="btn btn-primary btn-sm pull-left",onclick="location.href='/view/comment?id=1'",value="SendBox")
+                  input(type="button",class="btn btn-primary btn-sm pull-right",onclick="location.href='/match?map=1'",value="Find Someone else")
                 br
             if(error)
                 script alert("#{error}")
