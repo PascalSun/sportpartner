@@ -17,6 +17,7 @@ MEAN stack project
   6. open your web broswer: localhost://3000
 ### Ubuntu setup
   0. `sudo apt-get update`
+
       install nvm `curl https://raw.githubusercontent.com/creationix/nvm/v0.16.1/install.sh | sh`
   1. install nodejs: `nvm install 6.10.2`
   2. install npm: `sudo apt-get install npm`
@@ -27,6 +28,7 @@ MEAN stack project
   7. `npm start`
 
 ## Check Match
+  0. login link: https://sportspartner.herokuapp.com/login
   1. login with {username:admin@admin.com,password:admin1}
   2. see match link: https://sportspartner.herokuapp.com/match?map=1
 
