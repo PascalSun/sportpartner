@@ -45,7 +45,7 @@ module.exports.index = function(req,res){
                 console.log(profiles);
                 // decode the address
                 if(profiles[0]){
-                  geocoder.reverse({lat:profiles[0].Adress[0], lon:profiles[0].Adress[1]}, function(err, location) {
+                  geocoder.reverse({lat:profiles[0].Adress[1], lon:profiles[0].Adress[0]}, function(err, location) {
                     console.log(location[0].formattedAddress);
                     var formaladdress;
                     formaladdress = location[0].formattedAddress;

@@ -5,7 +5,7 @@ var detail = new mongoose.Schema(
       sex: String,
       age: Number,
       skill: Number,
-      Adress: {type: [Number], index: '2d'},
+      Adress: {type: [Number], index: '2dsphere'},
       sports: String
     }
   );
