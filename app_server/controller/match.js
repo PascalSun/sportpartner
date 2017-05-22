@@ -58,7 +58,7 @@ module.exports.index = function(req,res){
                   'dist':1
                 }
               )
-              .sort("diff")
+              // .sort("diff")
               .exec(function(errs,dis){
                 if(errs) throw errs;
                 console.log(dis);
