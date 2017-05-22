@@ -1,5 +1,37 @@
-# sportpartner
+# SportPartner
 MEAN stack project
+- Demo: https://sportspartner.herokuapp.com/
+## Deploy
+### Heroku
+  1. Create a Heroku account: https://www.heroku.com/
+  2. Connect it with Github
+  3. Deploy it with this repo (you can fork this one first)
+  4. Wait for the outcome
+  5. Demo: https://sportspartner.herokuapp.com/
+### Local Machine
+  1. install nodejs and npm :https://nodejs.org/en/download/package-manager/
+  2. clone the repo   `git clone https://github.com/PascalSun/sportpartner`
+  3. `cd ./sportpartner`
+  4. `npm install`
+  5. `npm start`
+  6. open your web broswer: localhost://3000
+### Ubuntu setup
+  0. `sudo apt-get update`
+      install nvm `curl https://raw.githubusercontent.com/creationix/nvm/v0.16.1/install.sh | sh`
+  1. install nodejs: `nvm install 6.10.2`
+  2. install npm: `sudo apt-get install npm`
+  3. install git: `sudo apt-get install git`
+  4. `git clone https://github.com/PascalSun/sportpartner`
+  5. `cd ./sportpartner`
+  6. `npm install`
+  7. `npm start`
+
+## Check Match
+  1. login with {username:admin@admin.com,password:admin1}
+  2. see match link: https://sportspartner.herokuapp.com/match?map=1
+
+## About the match algorithm
+
 
 ## Functions
 - [x] Basic Views
@@ -53,9 +85,9 @@ MEAN stack project
   - [x] Graphic Match Visualization
 
 ## Pages
-  - [ ] Instructions about how to launching on a cloud platform
+  - [x] Instructions about how to launching on a cloud platform
   - [x] user data collection
-  - [ ] display match
+  - [x] display match
   - [ ] explain match algorithm
   - [ ] describe what architecture used, choices made, difficulities faced
   - [ ] About test / validation Strategy and results
