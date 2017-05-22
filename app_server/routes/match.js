@@ -5,7 +5,4 @@ var handlematch = require('../controller/match');
 /* GET home page of match */
 router.get('/',handlematch.index);
 
-
-
-
 module.exports = router;

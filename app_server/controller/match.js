@@ -30,6 +30,7 @@ module.exports.index = function(req,res){
                   '_id':1,
                   'email':1,
                   'sexdiff':{$eq:["$sex",sex]},
+                  'sports':1,
                   'sportsdiff':{$eq:["$sports",sports]},
                   'agediff':{$abs:{$subtract:["$age",agewant]}},
                   'age':1,
@@ -61,7 +62,14 @@ module.exports.index = function(req,res){
               .exec(function(errs,dis){
                 if(errs) throw errs;
                 console.log(dis);
-                res.render('match',{user:req.user,partners:dis});
+                if(req.query.map==1){
+                // show map
+                  res.render('map',{user:req.user,dist:dis});
+                }
+                else{
+                // show without map
+                  res.render('match',{user:req.user,partners:dis});
+                }
               })
           }
           else{

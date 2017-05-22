@@ -48,7 +48,7 @@ block content
                 input(type="button",class="btn btn-primary btn-sm pull-right",onclick="location.href='users/prefer?edit=1'",value="Edit Prefer")
                 input(type="button",value="Refresh",onClick="window.location.reload()",class="btn btn-primary btn-sm pull-left")
                 
-                input(type="button",class="btn btn-primary btn-sm pull-left",onclick="location.href='/match/map'",value="Map")
+                input(type="button",class="btn btn-primary btn-sm pull-left",onclick="location.href='/match?map=1'",value="Map")
               br
             if(error)
                 script alert("#{error}")
@@ -66,7 +66,7 @@ block content
                       ul.media-list
                         - var i = 0
                         for partner in partners
-                          if(partner.dist!=0)
+                          if(partner.email!=user.username)
                             if(partner.sexdiff)
                               - i = i+1
                               li.media
