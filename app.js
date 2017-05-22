@@ -16,7 +16,6 @@ var matchs = require('./app_server/routes/match');
 
 var flash = require('connect-flash');
 
-
 var app = express();
 app.use(flash());
 

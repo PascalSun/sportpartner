@@ -107,7 +107,7 @@ module.exports.list = function(req,res){
       //
       // });
 
-      var q = Views.find({vistor_username:req.user.username}).sort({visit_time:-1}).limit(5);
+      var q = Views.find({vistor_username:req.user.username}).sort({visit_time:-1}).limit(10);
       q.exec(function(err,visitor){
         console.log(visitor);
         res.render("view",{users:visitor,listid:1,user:req.user});
@@ -124,7 +124,7 @@ module.exports.list = function(req,res){
       //
       // });
 
-      var q = Views.find({host_username:req.user.username}).sort({visit_time:-1}).limit(5);
+      var q = Views.find({host_username:req.user.username}).sort({visit_time:-1}).limit(10);
       q.exec(function(err,visitor){
         res.render("view",{users:visitor,listid:2,user:req.user});
       });

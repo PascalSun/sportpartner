@@ -51,9 +51,7 @@ MEAN stack project
     - [x] and if possible, show on the map
     - [ ] use rest API, and Angular, not need to change prefer data, show the results
   - [x] Graphic Match Visualization
-- [ ] Bonus Functions
-  - [ ] Match Online Status
-  - [ ] RealTime Chat
+
 ## Pages
   - [ ] Instructions about how to launching on a cloud platform
   - [x] user data collection
@@ -62,6 +60,10 @@ MEAN stack project
   - [ ] describe what architecture used, choices made, difficulities faced
   - [ ] About test / validation Strategy and results
   - [ ] Introduction and references
+## To fix
+  - [ ] the number value problem
+  - [ ] the match problem
+  - [ ] add some data in the mlab
 ## Tests
 
 ## Instructions

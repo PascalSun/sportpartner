@@ -38,7 +38,7 @@ module.exports.storeprefer = function(req,res){
     var age = req.body.age;
     var skill = req.body.skill;
     var sport = req.body.sports;
-
+    // add check with all the value
     Prefer.findOneAndUpdate({email:username},{
         email:username,
         sex:sex,
@@ -60,8 +60,8 @@ module.exports.storeprefer = function(req,res){
               skill:skill,
               sports:sport,
           });
-          newprefer.save(function(err) {
-          if (err) throw err;
+          newprefer.save(function(errs) {
+          if (errs) throw errs;
             console.log('User created!');
           });
         }
