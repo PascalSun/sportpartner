@@ -3,9 +3,9 @@ MEAN stack project
 
 ## Functions
 - [x] Basic Views
-- [ ] Set up mongodb
+- [x] Set up mongodb
   - [x] local machine
-  - [ ] mLab (add in the end, with some test data)
+  - [x] mLab (add in the end, with some test data)
 - [x] Register Functions
   - [x] Register/Login with passport
   - [x] Validate Password
