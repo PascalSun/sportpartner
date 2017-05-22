@@ -46,11 +46,11 @@ MEAN stack project
   - [x] If possible, Add email notification: Use mailgun to send email to the user when some leave message for the use
 - [ ] Show matches
   - [ ] Location Based Match
-    - [ ] Match all people, around, and show on the map
+    - [x] Match all people, around, and show on the map
     - [x] Match people meet prefer, show as a list
-    - [ ] and if possible, show on the map
+    - [x] and if possible, show on the map
     - [ ] use rest API, and Angular, not need to change prefer data, show the results
-  - [ ] Graphic Match Visualization
+  - [x] Graphic Match Visualization
 - [ ] Bonus Functions
   - [ ] Match Online Status
   - [ ] RealTime Chat

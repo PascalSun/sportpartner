@@ -7,15 +7,25 @@
       center: home
     });
     // show the home info
-    infoMap(map,home,dist[0]);
+    infoMap(map,home,dist[0],'You');
+    var k = 1;
+    for (var i =1; i < dist.length;i++){
+      if((dist[i].sex)&&(dist[i].sportsdiff)){
+        console.log('here');
+      infoMap(map,{lat:dist[i].Adress[1],lng:dist[i].Adress[0]},dist[i],k.toString());
+      k = k+1;
+      }
+      else{
+      infoMap(map,{lat:dist[i].Adress[1],lng:dist[i].Adress[0]},dist[i],'O');
+      }
+    }
 
   }
-
 
   google.maps.event.addDomListener(window, 'load', initialize);
 
 
-  function infoMap(map,location,inform) {
+  function infoMap(map,location,inform,label) {
     var contentString = '<div id="content">'+
         '<div id="siteNotice">'+
         '</div>'+
@@ -25,7 +35,8 @@
         '<p>Age: '+inform.age+'</p>'+
         '<p>Sports: '+inform.sports+'</p>'+
         '<p>Skill Degree: '+inform.skill+'</p>'+
-        '<p >Distance: '+Math.round(inform.dist*1000)+' Miles </p>'+
+        '<p >Distance Level: '+Math.round(inform.dist*1000)+' </p>'+
+        '<p><a href="/view/comment?username='+inform.email+'">Leave a message</a></p>'+
         '</div>';
     var infowindow = new google.maps.InfoWindow({
       content: contentString,
@@ -35,8 +46,8 @@
     var marker = new google.maps.Marker({
       position: location,
       map: map,
-      title: 'Home',
-      label: "You"
+      title: 'SportPartner',
+      label: label
     });
 
     marker.addListener('click', function() {
@@ -46,8 +57,6 @@
   }
 
 </script>
-
-
 
 <style>
   /* Always set the map height explicitly to define the size of the div
