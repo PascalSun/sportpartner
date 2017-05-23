@@ -4,8 +4,8 @@ block link
   link(rel='stylesheet', href='/stylesheets/index.css')
   script(src="/javascripts/register.js")
 block content
-  div.intro#home
-    div.login
+  #home.intro
+    .login.container
       form(name="register",method ='POST',action='/register',onsubmit="return registerSubmit()")
         fieldset
           legend Register your Sport Partner account
@@ -15,16 +15,19 @@ block content
             p(style="font-style:italic;font-size:15px;color:purple") #{namerror}
           - var email = "sunqiang93@163.com"
           input(type="email",name="username",value="#{email}" required)
-
+          br
+          br
           p Password:
           if(errors)
             p(style="font-style:italic;font-size:15px;color:purple") #{errors}
           - var password = "sunQIANG9337"
           input(type="password",name = "password",id="password",value = "#{password}" required)
-
-          p RePasspord:
+          br
+          br
+          p Re-enter Passpord:
           input(type="password",name = "repassword", id="password2", value="#{password}" required)
-          <br>
-          input(type="submit",value="Submit")
-          input(type="reset", value="Reset")
+          br
+          br
+          input(type="submit",value="Register")
+          input(type="reset", value="Clear Form")
           br

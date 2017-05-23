@@ -4,8 +4,8 @@ block link
   link(rel='stylesheet', href='/stylesheets/index.css')
 block content
 
-  div.intro#home
-    div.login
+  #home.intro
+    .login.container
       form(action="/login",method="POST")
         fieldset
           legend Login to your Sport Partner account
@@ -18,12 +18,15 @@ block content
             input(type="email",name="username",value="#{username}" required)
           else
             input(type="email",name="username",placeholder="Input your email" required)
+          br
+          br
           p Password:
           if(password)
             input(type="password",name = "password", value = "#{password}" required)
           else
             input(type="password",name = "password", placeholder="Input your password" required)
           br
-          input(type="submit",value="Submit")
-          input(type="reset", value="Reset")
+          br
+          input(type="submit",value="Login")
+          input(type="reset", value="Clear Form")
           br

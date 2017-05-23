@@ -5,8 +5,8 @@ block link
   script(src="/javascripts/register.js")
 block content
 
-  div.intro#home
-    div.login
+  #home.intro
+    .login.container
       form(action="/reset",method="POST",name ="register",onsubmit="return registerSubmit()" )
         fieldset
           legend Reset Password
@@ -25,6 +25,6 @@ block content
           p ComfirmPassword:
           input(type="password",name = "confirmpassword",id="password2", placeholder="new password again" required)
           br
-          input(type="submit",value="Submit")
-          input(type="reset", value="Reset")
+          input(type="submit",value="Reset password")
+          input(type="reset", value="Clear form")
           br
