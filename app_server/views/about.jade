@@ -18,30 +18,66 @@ block content
                       div.media-body  
                         ul.media-list
                           li.media
-                            h2.text-muted Introduction
-                            br
+                            h3.text-muted#content About Us
+                            ul.text-muted
+                              li 
+                                a(href="#Intro").text-success Introduction
+                                ul 
+                                  li 
+                                    a(href="#author") Author
+                                  li 
+                                    a(href="#breif") Breif
+                              li
+                                a(href="#Deploy").text-success Deploy
+                                ul
+                                  li
+                                    a(href="#heroku") Heroku
+                                  li 
+                                    a(href="#local") Local Machine
+                                  li
+                                    a(href="#ubuntu") Ubuntu Setup
+                              li
+                                a(href="#match").text-success Matches
+                                ul
+                                  li 
+                                    a(href="#demo") Show Matches
+                                  li
+                                    a(href="#Algorithm") Match Algorithm
+                              li
+                                a(href="#process").text-success Develop Process
+                                ul 
+                                  li
+                                    a(href="#arch") Architecture Used
+                                  li 
+                                    a(href="#problems") Problems Faced and Solutions
+                              li 
+                                a(href="#test").text-success Test
+                              li 
+                                a(href="#features").text-success Features
+                              li
+                                a(href="#refer").text-success Reference
+                            hr  
+                            h2.text-muted#Intro Introduction
                             div.clearfix
-                            h3.text-success Author
-                            br
+                            h3.text-success#author Author
                             ul.text-muted
                               li.text-muted Group 29
                               li.text-muted Teammates:
                               ul
                                 li.text-muted QIANG SUN 21804416 
                                 li.text-muted XUE YU 
-                            h3.text-success Brief
-                            br
+                              li.text-muted Github Repo:  &nbsp;&nbsp;
+                                a(href="https://github.com/PascalSun/sportpartner",target="_blank") Link
+                            h3.text-success#breif Brief
                             ul.text-muted
                               p.text-muted   If you want to play basketball or football, you will need some people to team up;  
                               p.text-muted   If you want to start go to gym or learn to swim, you will need a guide;  
                               p.text-muted   If you want to running everyday and you cannot insist on, you will need a partner support each other;
                               p.text-muted   So people can just register on our website about what they want and what they can do.  
                               p.text-muted   We will match them up as a list( and on the map) based on the information they provide.
-                            br
-                            div.clearfix
-                            h2.text-muted Deploy
-                            br
-                            h3.text-success Heroku
+                            hr
+                            h2.text-muted#Deploy Deploy
+                            h3.text-success#heroku Heroku
                             ul.text-muted
                               li.text-muted Create a Heroku account: https://www.heroku.com/
                               li.text-muted Connect it with Github
@@ -50,5 +86,111 @@ block content
                               li.text-muted Wait for the outcome
                               li.text-muted Demo: 
                                 a(href="https://sportspartner.herokuapp.com/") https://sportspartner.herokuapp.com/
-                            h3.text-success Local Machine
-      
+                            h3.text-success#local Local Machine
+                            ul.text-muted
+                              li.text-muted install nodejs and npm :https://nodejs.org/en/download/package-manager/
+                              li.text-muted clone the repo   git clone https://github.com/PascalSun/sportpartner
+                              li.text-muted cd ./sportpartner
+                              li.text-muted npm install
+                              li.text-muted npm start
+                              li.text-muted open your web broswer: 
+                                a(href="http://localhost://3000") localhost://3000
+                            h3.text-success#ubuntu Ubuntu Setup 
+                            ul.text-muted 
+                              li.text-muted install nvm: curl https://raw.githubusercontent.com/creationix/nvm/v0.16.1/install.sh | sh
+                              li.text-muted install nodejs:  nvm install 6.10.2
+                              li.text-muted install git: sudo apt-get install git
+                              li.text-muted git clone https://github.com/PascalSun/sportpartner
+                              li.text-muted cd ./sportpartner
+                              li.text-muted run : npm install 
+                              li.text-muted run : npm start
+                              li.text-muted To keep it running background, We can use 
+                                span forever 
+                            hr
+                            h2.text-muted#match Matches
+                            h3.text-success#demo Show Matches Demo
+                            ul.text-muted
+                              li login first: 
+                                a(href="https://sportspartner.herokuapp.com/login",target="_blank") https://sportspartner.herokuapp.com/login
+                              li Test account: username: admin@admin.com; password: admin1
+                              li See link 
+                                a(href="https://sportspartner.herokuapp.com/match?map=1",target="_blank") https://sportspartner.herokuapp.com/match?map=1
+                            h3.text-success#Algorithm About Match Algorithm
+                            ul.text-muted
+                              li There are five variables here to match:
+                              ol.text-success
+                                li sex: {male,female}
+                                li age: [0,99]
+                                li sports: {basketball,football,..}
+                                li sport skill degree: [0,10]
+                                li address
+                              li To match the user need to setup profile and preference first.
+                              li Then it will show the partners who have  exactly the sex and sports kind the user want as a list.  
+                              li And the order of the partners will be decided by difference degree, which combined by location distance, age distance, and skill distance:   
+                                strong.text-success &nbsp;&nbsp;&nbsp;&nbsp;      diff = skill+age/5+(location distance)x200 
+                                p The formula can be adjusted via further research.  
+                            hr
+                            h2.text-muted#process Development Process
+                            h3.text-success#arch Architecture Used
+                            ul.text-muted
+                              p Use MEAN stack obviously
+                              li cloud mongodb from mLab as database
+                              li Nodejs and Express framework
+                              li Angular and REST api used to allow user change the way they search the matches, and give a result immediately and frequently
+                              li Use MVC
+                              li jade as our view engine
+                            h3.text-success#problems Problems Faced and Solutions
+                            ul.text-muted
+                              li  Login functions:  use passport.js to fullfill the feature, quite hard when you start to do things
+                              li  How to deal with address:
+                                p
+                                ol
+                                  li find the exact address of the user input, not some useless string
+                                  li how to calculate the address distance
+                                  li geocode it into [lat,lng] and decode it to address
+                                br
+                                p Solutions
+                                ol
+                                  li Choose to use google map api to autocomplete the user's address from client side 
+                                  li and check it whether legal or not from server side
+                                  li use mongodb "2dsphere" index and "$near" which can calculate and sort byd istance between address 
+                                    p (google distance matrix can also be a option, but will not as fast as this one)
+                                  li to use the mongodb distance feature, address need to be stored in format [lng,lat].  
+                                  p so we use google map api again to geocode address and decode address
+                              li Show matches via google map
+                                p We use google map maker to deal with the diff json generated by server side
+                              li We have the feature to leave a message, and we want to send an email to the receiver to notice him about who and what message are left to him.  
+                                p So we use nodemailer library together with mailgun(mail server provider) to send email
+                              li Above are the main problems we faced and choices we have made, some other bugs and issues we have made are solved during the development process
+                          hr
+                          h2.text-muted#test Test
+                          hr
+                          h2.text-muted#features Features
+                          ul.text-muted
+                            li Login and Register, and reset password 
+                            li Edit Profile and Preference
+                              br
+                              a the address input can autocomplete via google map api
+                            li Leave a message and View others' profile
+                              ul 
+                                li Messages Inbox/Sendbox
+                                li List Partner who viewed you and who you viewed
+                                li Email Notification: Send an email to the receiver when you leave a message to someone 
+                            li Show matches as a list and on the map 
+                              ul
+                                li change the conditions and get outcome from the server side on a single page as a list
+                                li distingush the partners match your preference, and the guys near you but not match your preference 
+                                li Graphic Visualization of course, see on google map
+                          hr
+                          h2.text-muted#refer Reference
+                          ul.text-muted
+                            li About connect-flash: http://mclspace.com/2015/12/03/nodejs-flash-note/
+                            li Passport.js Document: http://passportjs.org/features
+                            li Geo Base query via mongodb: https://docs.mongodb.com/manual/core/geospatial-indexes/#GeospatialIndexing-geoNearCommand
+                            li Mongoose Document: http://mongoosejs.com/docs/guide.html
+                            li Google Map Api: https://developers.google.com/maps/documentation/geocoding/start#header
+                            li Google Map Console: https://console.developers.google.com/apis/dashboard?project=sportpartner-1495264627869&duration=PT1H
+                            li Mongoose document: https://scotch.io/tutorials/using-mongoosejs-in-node-js-and-mongodb-applications
+                            li node-geocoder: https://github.com/nchaulet/node-geocoder
+                            li node-sendmail: http://javascript.tutorialhorizon.com/2015/07/02/send-email-node-js-express/
+                            li nodemailer: https://github.com/nodemailer/nodemailer

@@ -174,7 +174,7 @@ The formula can be adjusted via further research.
   - [x] explain match algorithm
   - [x] describe what architecture used, choices made, difficulities faced
   - [ ] About test / validation Strategy and results
-  - [ ] Introduction and references
+  - [x] Introduction and references
 ## Todo Next
   - [x] the number value problem
   - [x] the match problem
