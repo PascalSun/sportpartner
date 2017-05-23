@@ -10,6 +10,9 @@ block content
   #home.intro
     .login.container
         fieldset
+          if(errors)
+              script alert("#{errors}")
+              
           if(profile)
             legend This is your Sport Partner Profile
             br

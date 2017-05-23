@@ -9,6 +9,9 @@ block content
     .login.container
       form(name = "prefer",action="./prefer", method="POST")
         fieldset
+          if(error)
+              script alert("#{error}")
+              
           if(prefer)
             legend This is your Sport Partner Preference
             br

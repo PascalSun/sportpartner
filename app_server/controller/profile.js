@@ -138,6 +138,7 @@ module.exports.storeprofile = function(req,res){
     var lat = req.body.addresslat;
     var lng = req.body.addresslng;
     var address = [lng,lat];
+    if((username)&&(sex)&&(age)&&(skill)&&(sport)&&(lat)&&(lng)){
 
     // test the address from server
     geocoder.reverse({lat:lat, lon:lng}, function(err, location) {
@@ -186,6 +187,10 @@ module.exports.storeprofile = function(req,res){
           res.render('profile',{user:req.user,error:'Some Problems with locations',profiles:req.body});
           }
       });
+    }
+    else{
+      res.render('profile',{user:req.user,errors:'Invalid Input',profiles:req.body});
+    }
   }
   // If not login then redirect to login page
   else{
