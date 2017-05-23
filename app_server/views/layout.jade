@@ -3,26 +3,30 @@ html
   head
     title Sport Partner
     link(rel='stylesheet', href='/stylesheets/general.css')
+    meta(charset='UTF-8')
+    meta(name='viewport' content='width=device-width, initial-scale=1')
+    link(rel='stylesheet', href='/stylesheets/bootstrap.css')
     block link
   body
-    div
-    nav
-      div
-        ul
-          li#left
-            a(href="/") Sports Partner
-
-          if (user)
-            li
-              a(href="/logout") logout
-            li
-              a(href='/users') #{user.username} 
-
-          else
-            li
-              a(href="/login") login
-            li
-              a(href="/register") Register
-
+    nav.navbar.navbar-fixed-top.topnav
+      .container.topnav
+        .navbar-header
+          button(type="button" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1").navbar-toggle
+            span.sr-only Toggle navigation
+            span.icon-bar
+            span.icon-bar
+          a(href="/").navbar-brand.topnav Sport Partner
+        .collapse.navbar-collapse
+          ul.nav.navbar-nav.navbar-right
+            if (user)
+              li
+                a(href='/users') #{user.username}
+              li
+                a(href="/logout") logout
+            else
+              li
+                a(href="/register") Register
+              li
+                a(href="/login") login
     block content
     include footer
