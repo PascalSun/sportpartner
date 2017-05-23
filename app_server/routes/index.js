@@ -9,6 +9,10 @@ var Account = require('../models/account');
 router.get('/', function(req, res) {
   res.render('index', {username:req.body.username,user:req.user});
 });
+// get about page
+router.get('/about',function(req,res){
+  res.render('about',{user:req.user});
+});
 
 // Get register page
 router.get('/register', function(req, res) {
