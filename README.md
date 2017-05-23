@@ -79,7 +79,6 @@ The formula can be adjusted via further research.
       - find the exact address of the user input
       - how to calculate the address distance
       - geocode it into [lat,lng] and decode it to address
-
     Solutions:
       - Choose to use google map api to autocomplete the user's address from client side  
         and check it whether legal or not from server side
