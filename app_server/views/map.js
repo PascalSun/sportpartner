@@ -1,6 +1,6 @@
 <script>
   // initialize the map and home
-  console.log(host);
+
   function initialize() {
     var home = { lat: host.Adress[1], lng: dist[0].Adress[0] };
     var map = new google.maps.Map(document.getElementById('map'), {
