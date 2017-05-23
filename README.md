@@ -179,7 +179,7 @@ The formula can be adjusted via further research.
   - [x] the number value problem
   - [x] the match problem
   - [x] add some data in the mlab
-  - [ ] List all the info as __about__ page of the web
+  - [x] List all the info as __about__ page of the web
 
 
 ## Some Notes
