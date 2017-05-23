@@ -22,11 +22,13 @@ html
               li
                 a(href='/users') #{user.username}
               li
-                a(href="/logout") logout
+                a(href="/logout") Logout
             else
               li
                 a(href="/register") Register
               li
-                a(href="/login") login
+                a(href="/login") Login
+            li
+              a(href="/about") About
     block content
     include footer
