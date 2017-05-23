@@ -16,16 +16,15 @@ MEAN stack project
   5. `npm start`
   6. open your web broswer: localhost://3000
 ### Ubuntu setup
-  0. `sudo apt-get update`
-
-      install nvm `curl https://raw.githubusercontent.com/creationix/nvm/v0.16.1/install.sh | sh`
-  1. install nodejs: `nvm install 6.10.2`
-  2. install npm: `sudo apt-get install npm`
-  3. install git: `sudo apt-get install git`
+  0. `sudo apt-get update`  install nvm `curl https://raw.githubusercontent.com/creationix/nvm/v0.16.1/install.sh | sh`
+  1. install nodejs:  `nvm install 6.10.2`
+  2. install npm:  `sudo apt-get install npm`
+  3. install git:  `sudo apt-get install git`
   4. `git clone https://github.com/PascalSun/sportpartner`
   5. `cd ./sportpartner`
   6. `npm install`
   7. `npm start`
+  8. want to keep it running, use something like *forever*
 
 ## Check Match
   0. login link: https://sportspartner.herokuapp.com/login

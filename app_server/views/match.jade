@@ -75,19 +75,20 @@ block content
                         for partner in partners
                           if(partner.email!=user.username)
                             if(partner.sexdiff)
-                              - i = i+1
-                              li.media
-                                .media-body
-                                  span.text-muted.pull-right
-                                    small.text-muted 
-                                  strong.text-success
-                                    span.badge #{i}
-                                    &nbsp;&nbsp;&nbsp;&nbsp;
-                                    a(href="/view/comment?username=#{partner.email}") #{partner.email}
-                                    p
-                                  - distance = Math.round(partner.dist*10000)
-                                  p  Sex: #{partner.sex} |  Age: #{partner.age} | Sports: #{partner.sports} | Skill Degree: #{partner.skill} | Distance #{distance} Miles &nbsp;&nbsp;&nbsp;
-                                    br
-                                    br
-                                    a(id=i).text-muted.pull-right
-                                    button(class="text-muted pull-right",name=i,style="display:inline",onclick="return geocodeLatLng([#{partner.Adress[0]},#{partner.Adress[1]}],#{i})") See Address
+                              if(partner.sportsdiff)
+                                - i = i+1
+                                li.media
+                                  .media-body
+                                    span.text-muted.pull-right
+                                      small.text-muted 
+                                    strong.text-success
+                                      span.badge #{i}
+                                      &nbsp;&nbsp;&nbsp;&nbsp;
+                                      a(href="/view/comment?username=#{partner.email}") #{partner.email}
+                                      p
+                                    - distance = Math.round(partner.dist*10000)
+                                    p  Sex: #{partner.sex} |  Age: #{partner.age} | Sports: #{partner.sports} | Skill Degree: #{partner.skill} | Distance #{distance} Miles &nbsp;&nbsp;&nbsp;
+                                      br
+                                      br
+                                      a(id=i).text-muted.pull-right
+                                      button(class="text-muted pull-right",name=i,style="display:inline",onclick="return geocodeLatLng([#{partner.Adress[0]},#{partner.Adress[1]}],#{i})") See Address

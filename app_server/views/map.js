@@ -1,22 +1,26 @@
 <script>
   // initialize the map and home
+  console.log(host);
   function initialize() {
-    var home = { lat: dist[0].Adress[1], lng: dist[0].Adress[0] };
+    var home = { lat: host.Adress[1], lng: dist[0].Adress[0] };
     var map = new google.maps.Map(document.getElementById('map'), {
       zoom: 12,
       center: home
     });
     // show the home info
-    infoMap(map,home,dist[0],'You');
+    infoMap(map,home,host,'You');
     var k = 1;
-    for (var i =1; i < dist.length;i++){
-      if((dist[i].sex)&&(dist[i].sportsdiff)){
+    for (var i =0; i < dist.length;i++){
+      if((dist[i].sex)&&(dist[i].sportsdiff)&&(dist[i].email!=host.email)){
         console.log('here');
       infoMap(map,{lat:dist[i].Adress[1],lng:dist[i].Adress[0]},dist[i],k.toString());
       k = k+1;
       }
       else{
-      infoMap(map,{lat:dist[i].Adress[1],lng:dist[i].Adress[0]},dist[i],'O');
+        if(dist[i].email!=host.email){
+          infoMap(map,{lat:dist[i].Adress[1],lng:dist[i].Adress[0]},dist[i],'O');
+        }
+
       }
     }
 

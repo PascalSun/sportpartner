@@ -58,17 +58,17 @@ module.exports.index = function(req,res){
                   'dist':1
                 }
               )
-              // .sort("diff")
+              .sort("diff")
               .exec(function(errs,dis){
                 if(errs) throw errs;
                 console.log(dis);
                 if(req.query.map==1){
                 // show map
-                  res.render('map',{user:req.user,dist:dis});
+                  res.render('map',{user:req.user,dist:dis,host:profile});
                 }
                 else{
                 // show without map
-                  res.render('match',{user:req.user,partners:dis});
+                  res.render('match',{user:req.user,partners:dis,host:profile});
                 }
               })
           }
