@@ -2,6 +2,7 @@ extends layout
 block link
   link(rel='stylesheet', href='/stylesheets/login.css')
   link(rel='stylesheet', href='/stylesheets/index.css')
+  include geo.js
   script(src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC-mZN2QbvwGy6IVwgdz-hmoMo_PFtvzRU&libraries=places&callback=initAutocomplete" async defer)
 
 block content
@@ -85,4 +86,3 @@ block content
               input(type="submit",value="Submit")
               input(type="reset", value="Reset")
               br
-  include geo.js

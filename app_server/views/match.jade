@@ -17,14 +17,8 @@ block content
           .panel.panel-info
             .panel-heading
               legend  Partners Meet your Requirements
-               
-<<<<<<< HEAD
-            div.panel-body
-      
-=======
             .panel-body
-              include geo.js
->>>>>>> 2159842621b42130bc0d0bf7df6125d1692a108b
+
               p
               form(method="post",action="/match",class="form-inline justified")
                 .form-group
@@ -70,15 +64,7 @@ block content
                 script alert("#{error}")
 
             if(partners)
-
-<<<<<<< HEAD
-
-              div.panel-body
-=======
-              include geo.js
               .panel-body
->>>>>>> 2159842621b42130bc0d0bf7df6125d1692a108b
-
                 .clearfix
                   .media-body
                       span.text-muted.pull-left
@@ -105,4 +91,3 @@ block content
                                     br
                                     a(id=i).text-muted.pull-right
                                     button(class="text-muted pull-right",name=i,style="display:inline",onclick="return geocodeLatLng([#{partner.Adress[0]},#{partner.Adress[1]}],#{i})") See Address
-
