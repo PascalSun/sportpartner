@@ -1,0 +1,54 @@
+extends layout
+block link
+  link(rel='stylesheet', href='/stylesheets/login.css')
+  link(rel='stylesheet', href='/stylesheets/index.css')
+  link(rel='stylesheet', href='/stylesheets/bootstrap.css')
+block content
+  div.container
+    div(class="clearfix" style="margin-bottom:100px;")
+    div.row
+      div.col-lg-10.col-lg-offset-1.col-md-10.col-md-offset-1.col-sm-10.col-sm-offset-1
+        div.twt-wrapper
+          div.panel.panel-info
+            div.panel-body
+              div(class="clearfix")
+                div.media-body
+                  ul.media-list
+                    li.media
+                      div.media-body  
+                        ul.media-list
+                          li.media
+                            h2.text-muted Introduction
+                            br
+                            div.clearfix
+                            h3.text-success Author
+                            br
+                            ul.text-muted
+                              li.text-muted Group 29
+                              li.text-muted Teammates:
+                              ul
+                                li.text-muted QIANG SUN 21804416 
+                                li.text-muted XUE YU 
+                            h3.text-success Brief
+                            br
+                            ul.text-muted
+                              p.text-muted   If you want to play basketball or football, you will need some people to team up;  
+                              p.text-muted   If you want to start go to gym or learn to swim, you will need a guide;  
+                              p.text-muted   If you want to running everyday and you cannot insist on, you will need a partner support each other;
+                              p.text-muted   So people can just register on our website about what they want and what they can do.  
+                              p.text-muted   We will match them up as a list( and on the map) based on the information they provide.
+                            br
+                            div.clearfix
+                            h2.text-muted Deploy
+                            br
+                            h3.text-success Heroku
+                            ul.text-muted
+                              li.text-muted Create a Heroku account: https://www.heroku.com/
+                              li.text-muted Connect it with Github
+                              li.text-muted Deploy it with this github 
+                                a(href="https://github.com/PascalSun/sportpartner",target="_blank") repo
+                              li.text-muted Wait for the outcome
+                              li.text-muted Demo: 
+                                a(href="https://sportspartner.herokuapp.com/") https://sportspartner.herokuapp.com/
+                            h3.text-success Local Machine
+      
