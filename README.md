@@ -26,12 +26,28 @@ MEAN stack project
   7. `npm start`
   8. want to keep it running, use something like *forever*
 
-## Check Match
+## Show Matches
   0. login link: https://sportspartner.herokuapp.com/login
   1. login with {username:admin@admin.com,password:admin1}
   2. see match link: https://sportspartner.herokuapp.com/match?map=1
 
 ## About the match algorithm
+There are five variables here to match: sex{male,female};age{0~99};sports{basketball,football...};sport skill degree{0,10};address  
+To match, the user need to setup profile and preference first.  
+Then it will show the partners who have  exactly the sex and sports kind the user want as a list.
+And the order of the partners will be decided by difference degree, which combined by location distance, age distance, and skill distance:  *diff = skill+age/5+(location distance)x200*  
+The formula can be adjusted via further research.
+
+## Development Process
+
+### Architecture Used
+  Use MEAN stack obviously
+  1. cloud mongodb from mLab as database
+  2. Nodejs and Express framework
+  3. Angular and REST api used to allow user change the way they search the matches, and give a result immediately and frequently
+### Problems and Solutions
+  1. Login functions:  use passport.js to fullfill the feature, quite hard when you start to do things
+  2. Store address in the database and
 
 
 ## Functions
@@ -89,7 +105,7 @@ MEAN stack project
   - [x] Instructions about how to launching on a cloud platform
   - [x] user data collection
   - [x] display match
-  - [ ] explain match algorithm
+  - [x] explain match algorithm
   - [ ] describe what architecture used, choices made, difficulities faced
   - [ ] About test / validation Strategy and results
   - [ ] Introduction and references
