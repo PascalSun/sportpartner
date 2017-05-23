@@ -10,28 +10,31 @@ block link
   -  function tolocal(s) { return s.toLocaleString(); };
   
 block content
-  div.container
-    div(class="clearfix" style="margin-bottom:100px;")
-
-    div.row
-      div.col-lg-10.col-lg-offset-1.col-md-10.col-md-offset-1.col-sm-10.col-sm-offset-1
-        div.twt-wrapper
-          div.panel.panel-info
-            div.panel-heading
-              legend  Partners Meets your Requirements
+  .container
+    .row(style="margin-top:100px; margin-botton 100px")
+      .col-lg-10.col-lg-offset-1.col-md-10.col-md-offset-1.col-sm-10.col-sm-offset-1
+        .twt-wrapper
+          .panel.panel-info
+            .panel-heading
+              legend  Partners Meet your Requirements
                
+<<<<<<< HEAD
             div.panel-body
       
+=======
+            .panel-body
+              include geo.js
+>>>>>>> 2159842621b42130bc0d0bf7df6125d1692a108b
               p
               form(method="post",action="/match",class="form-inline justified")
-                div.form-group
-                  div.col-xs-3
+                .form-group
+                  .col-xs-3
                     label Sex &nbsp;&nbsp;
                     select(class="form-control")
                       option(value = "Any" selected) Any &nbsp;&nbsp;
                       option(value = "Male") Male &nbsp;&nbsp;
                       option(value = "Female") Female &nbsp;&nbsp;
-                  div.col-xs-4
+                  .col-xs-4
                     label Sports  &nbsp;&nbsp;
                       select(class="form-control")
                         option(value = "Any" selected) Any &nbsp;&nbsp;
@@ -40,7 +43,7 @@ block content
                         option(value = "Fitness") Fitness &nbsp;&nbsp; 
                         option(value = "Swimmning") Swimmning &nbsp;&nbsp; 
                         option(value = "Running") Running &nbsp;&nbsp; 
-                  div.col-xs-2 
+                  .col-xs-2
                     label Skill  &nbsp;&nbsp;
                       select(class="form-control",col="10")
                         option(value = '0' selected) 0
@@ -48,10 +51,10 @@ block content
                           option(value = "#{i}") #{i}
                   
                         
-                  div.col-xs-3
+                  .col-xs-3
                     label Age  &nbsp;&nbsp;&nbsp;
                     input(class="form-control",type="Number",max=100,min=0,value="25")
-                  div.col-xs-8
+                  .col-xs-8
                     label Address &nbsp;&nbsp;
                     input(type="text",class="form-control",id="address",onfocus="")
                 p
@@ -68,12 +71,17 @@ block content
 
             if(partners)
 
+<<<<<<< HEAD
 
               div.panel-body
+=======
+              include geo.js
+              .panel-body
+>>>>>>> 2159842621b42130bc0d0bf7df6125d1692a108b
 
-                div(class="clearfix")
-                  div.media-body
-                      span(class="text-muted pull-left") 
+                .clearfix
+                  .media-body
+                      span.text-muted.pull-left
                       small.text-muted Click Username to leave a message
                       p
                       ul.media-list
@@ -83,11 +91,11 @@ block content
                             if(partner.sexdiff)
                               - i = i+1
                               li.media
-                                div.media-body
-                                  span(class="text-muted pull-right")
+                                .media-body
+                                  span.text-muted.pull-right
                                     small.text-muted 
-                                  strong(class="text-success") 
-                                    span(class="badge") #{i} 
+                                  strong.text-success
+                                    span.badge #{i}
                                     &nbsp;&nbsp;&nbsp;&nbsp;
                                     a(href="/view/comment?username=#{partner.email}") #{partner.email}
                                     p
@@ -95,8 +103,6 @@ block content
                                   p  Sex: #{partner.sex} |  Age: #{partner.age} | Sports: #{partner.sports} | Skill Degree: #{partner.skill} | Distance #{distance} Miles &nbsp;&nbsp;&nbsp;
                                     br
                                     br
-                                    a(class="text-muted pull-right",id=i)         
+                                    a(id=i).text-muted.pull-right
                                     button(class="text-muted pull-right",name=i,style="display:inline",onclick="return geocodeLatLng([#{partner.Adress[0]},#{partner.Adress[1]}],#{i})") See Address
-                
-    div(class="clearfix" style="margin-top:600px;")
-    
+

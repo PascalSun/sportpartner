@@ -5,12 +5,12 @@ block link
 
 block content
 
-  div.intro#home
-    div.login
+  #home.intro
+    .login.container
       form(name = "prefer",action="./prefer", method="POST")
         fieldset
           if(prefer)
-            legend This is your Sport Partner Prefer
+            legend This is your Sport Partner Preference
             br
             p Prefered Sex: #{prefer.sex}
             p Prefered Age: #{prefer.age}
@@ -18,11 +18,11 @@ block content
             p Prefered Skill Degree: #{prefer.skill}
             p
               button
-                a(href="./prefer?edit=1") Edit your prefer
+                a(href="./prefer?edit=1") Edit your preference
               button
                 a(href="/match") Find Partners
           else
-            legend Edit your Sport Partner prefer
+            legend Edit your Sport Partner preference
             br
             if(error)
               p(style="font-style:italic;font-size:15px;color:purple") #{error}

@@ -3,12 +3,15 @@ block link
   link(rel='stylesheet', href='/stylesheets/index.css')
 
 block content
-  div.intro#home
-    div.intro-message
-      h1 SportsPartner #{name}
-      if(username)
-        h2 Welcome #{username} !
-      else if (user)
-        h2(style="color:white") Welcome #{user.username} !
-      hr.intro-divider
-      h2(style="color:white") Find the best SportsPartner for your health
+  #home.intro
+    .container
+      .row
+        .col-lg-12
+          .intro-message
+            h1 Sport Partner
+            if(username)
+              h3 Welcome #{username} !
+            else if (user)
+              h3 Welcome #{user.username} !
+            hr.intro-divider
+            h3 Find the best Sport Partner for your health

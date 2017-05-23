@@ -1,11 +1,12 @@
 footer
-  div#left Coded by Qiang Sun and Xue Yu
-  div#right Copyright&copy;Sports Partner | TIME: <span id="time"></span>&nbsp| Last Modified at <span id="lastmodified"></span>
-  include footer.js
-style(type='text/css').
-    #left {
-            float:left
-            }
-    #right{
-            float:right
-          }
+  .container
+    .row
+      .col-lg-12
+        ul.nav.navbar-nav.navbar-left
+          li
+            a(href='/about') About Sport Partner
+    .row
+      .col-lg-12
+        #left Coded by Qiang Sun and Xue Yu
+        #right Copyright&copy;Sport Partner | TIME: <span id="time"></span>&nbsp| Last Modified at <span id="lastmodified"></span>
+          include footer.js
