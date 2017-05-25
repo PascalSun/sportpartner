@@ -1,11 +1,6 @@
 extends layout
-block link
-  link(rel='stylesheet', href='/stylesheets/index.css')
 
 block content
-  #home.intro
-    .intro-message.container
-      h1 404
-      h2 Woops, Something goes wrong!
-      h2
-        a(href="/") SportPartner
+  h1= message
+  h2= error.status
+  pre #{error.stack}

@@ -1,6 +1,8 @@
 <script>
 var app = angular.module("matchApp", []);
 app.controller("matchCtrl", function($scope,$http) {
+    $scope.normal=true;
+    $scope.search = false;
     $scope.updateForm = function () {
         var sex = document.getElementById('sex').value;
         var sport = document.getElementById('sport').value;
@@ -30,10 +32,14 @@ app.controller("matchCtrl", function($scope,$http) {
               }
               else{
                 console.log(response.data.partners[0]);
-                var partners = response.data.partners[0];
+                var partners = response.data.partners;
                 var users = response.data.user;
-                console.log(users);
-                $scope.sexSelected = response.data;
+                console.log(partners);
+                $scope.normal = false;
+                $scope.Math = window.Math;
+                $scope.teammates = partners;
+                $scope.user = users;
+                $scope.search = true;
               }
             }, function myError(response) {
               window.alert("Some Problems with your match conditions");
