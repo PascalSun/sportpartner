@@ -6,27 +6,27 @@ block content
 
   #home.intro
     .login.container
-      form(action="/login",method="POST")
+      form(action="/login" method="POST")
         fieldset
           legend Login to your Sport Partner account
           br
           p Email:
           -if(message)
-            alert
-              p(style="font-style:italic;font-size:15px;color:purple") #{message}
+          alert
+            p(style="font-style:italic;font-size:15px;color:purple") #{message}
           if(username)
-            input(type="email",name="username",value="#{username}" required)
+            input(type="email" name="username" value="#{username}" required)
           else
-            input(type="email",name="username",placeholder="Input your email" required)
+            input(type="email" name="username" placeholder="Input your email" required)
           br
           br
           p Password:
           if(password)
-            input(type="password",name = "password", value = "#{password}" required)
+            input(type="password" name = "password" value = "#{password}" required)
           else
-            input(type="password",name = "password", placeholder="Input your password" required)
+            input(type="password" name = "password" placeholder="Input your password" required)
           br
           br
-          input(type="submit",value="Login")
+          input(type="submit" value="Login")
           input(type="reset", value="Clear Form")
           br

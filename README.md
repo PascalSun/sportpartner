@@ -5,7 +5,7 @@ MEAN stack project
 ## Introduction
 ### Author
   1. Group 29
-  2. Teammates: QIANG SUN(21804416) and XUE YU ()
+  2. Teammates: QIANG SUN(21804416) and XUE YU (20657462)
 ### Brief
 
   If you want to play basketball or football, you will need some people to team up;  
