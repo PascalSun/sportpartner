@@ -26,13 +26,13 @@ block content
                 .form-group
                   .col-xs-3
                     label Sex &nbsp;&nbsp;
-                    select(class="form-control" ng-model="sexSelected")
+                    select(class="form-control" id="sex")
                       option(value = "Any" selected) Any &nbsp;&nbsp;
                       option(value = "Male") Male &nbsp;&nbsp;
                       option(value = "Female") Female &nbsp;&nbsp;
                   .col-xs-4
                     label Sports  &nbsp;&nbsp;
-                      select(class="form-control" ng-model="sportSelected")
+                      select(class="form-control" id="sport")
                         option(value = "Any" selected) Any &nbsp;&nbsp;
                         option(value = "Basketball") Basketball &nbsp;&nbsp; 
                         option(value = "Football") Football &nbsp;&nbsp; 
@@ -41,18 +41,18 @@ block content
                         option(value = "Running") Running &nbsp;&nbsp; 
                   .col-xs-2
                     label Skill  &nbsp;&nbsp;
-                      select(class="form-control" ng-model="skillSelected")
-                        option(value = '0' selected) 0
-                        - for (var i = 1; i < 11; ++i) 
+                      select(class="form-control"  id="skill")
+                        option(value = 5 selected) 5
+                        - for (var i = 0; i < 11; ++i) 
                           option(value = "#{i}") #{i}
                   
                         
                   .col-xs-3
                     label Age  &nbsp;&nbsp;&nbsp;
-                    input(class="form-control",type="Number",max=100,min=0,value="25",ng-model="ageSelected")
+                    input(class="form-control",type="Number",id="age",max=100,min=0,value="25")
                   .col-xs-8
                     label Address &nbsp;&nbsp;
-                    input(type="text",class="form-control",id="address",onfocus="",ng-model="addressSelected")
+                    input(type="text",class="form-control",id="address")
                 p
                 input(type="hidden")
                 
