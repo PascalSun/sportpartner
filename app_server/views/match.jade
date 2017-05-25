@@ -3,14 +3,16 @@ block link
   link(rel='stylesheet', href='/stylesheets/login.css')
   link(rel='stylesheet', href='/stylesheets/index.css')
   link(rel='stylesheet', href='/stylesheets/bootstrap.css')
+  script(src='/javascripts/angular.min.js')
   include geo.js
+  include matchAngular.js
   script(src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC-mZN2QbvwGy6IVwgdz-hmoMo_PFtvzRU&libraries=places&callback=initAutocomplete" async defer)
 
   <style type="text/css">.cf-hidden { display: none; } .cf-invisible { visibility: hidden; }</style>
   -  function tolocal(s) { return s.toLocaleString(); };
   
 block content
-  .container
+  div(ng-app="matchApp" ng-controller="matchCtrl").container
     .row(style="margin-top:100px; margin-botton 100px")
       .col-lg-10.col-lg-offset-1.col-md-10.col-md-offset-1.col-sm-10.col-sm-offset-1
         .twt-wrapper
@@ -24,13 +26,13 @@ block content
                 .form-group
                   .col-xs-3
                     label Sex &nbsp;&nbsp;
-                    select(class="form-control")
+                    select(class="form-control" ng-model="sexSelected")
                       option(value = "Any" selected) Any &nbsp;&nbsp;
                       option(value = "Male") Male &nbsp;&nbsp;
                       option(value = "Female") Female &nbsp;&nbsp;
                   .col-xs-4
                     label Sports  &nbsp;&nbsp;
-                      select(class="form-control")
+                      select(class="form-control" ng-model="sportSelected")
                         option(value = "Any" selected) Any &nbsp;&nbsp;
                         option(value = "Basketball") Basketball &nbsp;&nbsp; 
                         option(value = "Football") Football &nbsp;&nbsp; 
@@ -39,7 +41,7 @@ block content
                         option(value = "Running") Running &nbsp;&nbsp; 
                   .col-xs-2
                     label Skill  &nbsp;&nbsp;
-                      select(class="form-control",col="10")
+                      select(class="form-control" ng-model="skillSelected")
                         option(value = '0' selected) 0
                         - for (var i = 1; i < 11; ++i) 
                           option(value = "#{i}") #{i}
@@ -47,16 +49,16 @@ block content
                         
                   .col-xs-3
                     label Age  &nbsp;&nbsp;&nbsp;
-                    input(class="form-control",type="Number",max=100,min=0,value="25")
+                    input(class="form-control",type="Number",max=100,min=0,value="25",ng-model="ageSelected")
                   .col-xs-8
                     label Address &nbsp;&nbsp;
-                    input(type="text",class="form-control",id="address",onfocus="")
+                    input(type="text",class="form-control",id="address",onfocus="",ng-model="addressSelected")
                 p
                 input(type="hidden")
                 
                 input(type="button",value="Refresh",onClick="window.location.reload()",class="btn btn-primary btn-sm pull-left")
                 input(type="button",class="btn btn-primary btn-sm pull-right",onclick="location.href='users/prefer?edit=1'",value="Edit Prefer")
-                input(type="submit",class="btn btn-primary btn-sm pull-right",value="Find")
+                input(type="button",class="btn btn-primary btn-sm pull-right",value="Find",ng-click="updateForm()")
                 
                 input(type="button",class="btn btn-primary btn-sm pull-left",onclick="location.href='/match?map=1'",value="Map")
               br
@@ -69,7 +71,7 @@ block content
                   .media-body
                       span.text-muted.pull-left
                       small.text-muted Click Username to leave a message
-                      p
+                      p {{filterInfo}}{{sexSelected}}{{sportSelected}}{{skillSelected}}{{ageSelected}}{{addressSelected}}
                       ul.media-list
                         - var i = 0
                         for partner in partners
