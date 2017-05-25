@@ -37,6 +37,7 @@ app.controller("matchCtrl", function($scope,$http) {
                 console.log(partners);
                 $scope.normal = false;
                 $scope.Math = window.Math;
+
                 $scope.teammates = partners;
                 $scope.user = users;
                 $scope.search = true;
@@ -45,5 +46,31 @@ app.controller("matchCtrl", function($scope,$http) {
               window.alert("Some Problems with your match conditions");
           });
         };
+    $scope.getaddress = function(index){
+      var lat = document.getElementById('lat'+index).value;
+      var lng = document.getElementById('lng'+index).value;
+      var address = [lng,lat];
+      function geocodeLatLng(address,index) {
+        console.log(address);
+
+        var geocoder = new google.maps.Geocoder();
+        var latlng = {lat: parseFloat(address[1]), lng: parseFloat(address[0])};
+        geocoder.geocode({'location': latlng}, function(results, status) {
+          if (status === 'OK') {
+            if (results[1]) {
+              console.log(results[1].formatted_address);
+              document.getElementById('show'+index).innerHTML = results[1].formatted_address;
+              document.getElementById('button'+index).style.display = 'none';
+            } else {
+              window.alert('No results found');
+            }
+          } else {
+            window.alert('Geocoder failed due to: ' + status);
+          }
+        });
+    }
+    geocodeLatLng(address,index);
+
+    }
       });
 </script>
