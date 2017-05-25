@@ -57,19 +57,36 @@ describe('Test', function(){
 
   // register
   describe('Register',function(){
-    it('Get register Page',function(done){
-      request.get('/register')
-        .expect(200,function(err,res){
-          res.text.should.contain('register');
-          done(err);
-        });
-    });
+      this.timeout(20000);
+      it('Get register Page',function(done){
+          request.get('/register')
+            .expect(200,function(err,res){
+                res.text.should.contain('register');
+                done(err);
+            });
+      });
+      it('Register not allowed when username exists', function(done) {
+          this.timeout(20000);
+          setTimeout(done, 20000);
+          request.post('/register')
+              .send({
+                  username: "admin@admin.com",
+                  password: "admin1",
+                  repassword: "admin1"
+              })
+              .expect(200, function (err, res) {
+                  should.not.exist(err);
+                  res.text.should.contain('User Already Exist');
+                  done();
+              });
+      });
+
   });
 
 
   //login function
   describe('Login', function() {
-  describe('Login feature', function() {
+    this.timeout(30000);
     it('should get login page successfully',function(done){
       request.get('/login')
         .expect(200,function(err,res){
@@ -77,6 +94,19 @@ describe('Test', function(){
           done(err);
         });
       });
+    it('should not login with incorrect password', function (done) {
+        this.timeout(30000);
+        setTimeout(done, 30000);
+        request.post('/login')
+        .send({
+            username:"admin@admin.com",
+            password:"someRandomPassword"+Math.random(1)
+        })
+            .expect(200, function (err, res) {
+                should.not.exist(err);
+                res.text.should.contain('Password or username are incorrect');
+                done();
+            });
     });
   });
 
@@ -89,14 +119,15 @@ describe('Test', function(){
           done(err);
         });
     });
+
   });
 
   // Logout
-  describe('Lgout',function(){
+  describe('Logout',function(){
     it('Logout Function',function(done){
       request.get('/logout')
         .expect(302,function(err,res){
-          res.header['location'].should.include('/')
+          res.header['location'].should.include('/');
           done(err);
         });
     });
@@ -134,10 +165,4 @@ describe('Test', function(){
 
         });
   });
-
-
-
-
-
-
 });
