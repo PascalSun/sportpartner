@@ -20,12 +20,24 @@ app.controller("matchCtrl", function($scope,$http) {
               'address':address
                 }
           }).then(function mySuccess(response) {
-              $scope.sexSelected = response.data;
+              console.log(response.data.error);
+              if(response.data.error){
+                if(response.data.error=='login'){
+                  window.location = "/login";
+                }else{
+                  window.alert("Some Problems with your "+response.data.error);
+                }
+              }
+              else{
+                console.log(response.data.partners[0]);
+                var partners = response.data.partners[0];
+                var users = response.data.user;
+                console.log(users);
+                $scope.sexSelected = response.data;
+              }
             }, function myError(response) {
-              $scope.myWelcome = response.statusText;
+              window.alert("Some Problems with your match conditions");
           });
         };
       });
-
-
 </script>

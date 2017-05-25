@@ -90,7 +90,7 @@ module.exports.match = function(req,res){
                   });
           }
           else{
-            res.json({error:'condition'});
+            res.json({error:'match conditions'});
           }
         }
         else{
