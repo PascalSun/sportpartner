@@ -1,6 +1,7 @@
 # SportPartner
 MEAN stack project
 - Demo: https://sportspartner.herokuapp.com/
+- The info pages: https://sportspartner.herokuapp.com/about
 
 ## Introduction
 ### Author
@@ -112,7 +113,12 @@ And in the end, we do the unit and user test.
   - the user should have a head portrait, for the partners to know each other
   - when the net speed is very low, sometime show error
   - can not be used on a small screen phone, because can not find login button. (which have been fixed)
- 
+  - why not just show the address, but need to click to see the address
+  - in firefox49.9, can not click the edit preference button
+
+  Also we use selenium IDE tool to generate some script files with different scenarios, to make sure every time we modify something, the whole system works properly.
+
+
 
 
 ## Reference
