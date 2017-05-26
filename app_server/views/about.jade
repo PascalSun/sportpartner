@@ -171,13 +171,15 @@ block content
                             p And after each feature finished, we will test the whole feature.
                             p 
                             p And in the end, we do the unit and user test.
-                            li Unit Test: Use path coverage Strategy, and try to cover 100% branches and statement
+                            li.text-success 
+                              p Unit Test: Use path coverage Strategy, and try to cover 100% branches and statement
                               ul.text-muted
                                 li In fact, when I start to do the test, I start to realize that it is not a good choice which we just use the REST API structure with the match list function. It will be much easier to test, if we use that.  
                                 li Also, the dependency between different files makes the test much harder.
                                 li At the same time, when we find a bug, It will take long time to fix and the process is quite struggling
                                 li to test, just run: `npm test`, and the test result will show on coverage folder
-                            li User Test: Black Box Test, which without knowing about the code backend. I ask my girl friend and my friends to test all the features, and give some feedback They indeed give some advice:
+                            li.text-success User Test: 
+                              p Black Box Test, which without knowing about the code backend. I ask my girl friend and my friends to test all the features, and give some feedback They indeed give some advice:
                               ul.text-muted
                                 li the user should have a username, not the same as the email
                                 li the user should have a head portrait, for the partners to know each other
