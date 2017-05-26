@@ -172,14 +172,15 @@ block content
                             p 
                             p And in the end, we do the unit and user test.
                             li.text-success Unit Test: 
-                              p Use path coverage Strategy, and try to cover 100% branches and statement
+                              p.text-muted Use path coverage Strategy, and try to cover 100% branches and statement
                               ul.text-muted
                                 li In fact, when I start to do the test, I start to realize that it is not a good choice which we just use the REST API structure with the match list function. It will be much easier to test, if we use that.  
                                 li Also, the dependency between different files makes the test much harder.
                                 li At the same time, when we find a bug, It will take long time to fix and the process is quite struggling
                                 li to test, just run: `npm test`, and the test result will show on coverage folder
                             li.text-success User Test: 
-                              p.text-muted Black Box Test, which without knowing about the code backend. I ask my girl friend and my friends to test all the features, and give some feedback They indeed give some advice:
+                              p.text-muted Black Box Test, which without knowing about the code backend. 
+                              p.text-muted I ask my girl friend and my friends to test all the features, and give some feedback They indeed give some advice:
                               ul.text-muted
                                 li the user should have a username, not the same as the email
                                 li the user should have a head portrait, for the partners to know each other
@@ -187,8 +188,8 @@ block content
                                 li can not be used on a small screen phone, because can not find login button. (which have been fixed)
                                 li why not just show the address, but need to click to see the address
                                 li in firefox49.9, can not click the edit preference button
-                              p Also we use selenium IDE tool to generate some script files with different scenarios, to make sure every time we modify something, the whole system works properly. 
-                              p The script is in folder /Usertest, import it into Firefox Selenium IDE
+                              p.text-muted Also we use selenium IDE tool to generate some script files with different scenarios, to make sure every time we modify something, the whole system works properly. 
+                              p.text-muted The script is in folder /Usertest, import it into Firefox Selenium IDE
                               
                           hr
                           h2.text-muted#features Features
