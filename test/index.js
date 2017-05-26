@@ -6,7 +6,7 @@ var app = require('../app');
 var request = require('supertest')(app);
 var Account = require('../app_server/models/account');
 
-describe('Test', function(){
+describe('Index Page Test', function(){
 /*
     before(function() {
       Account.register(new Account({username:'test1admin@test.com',password:"123456"}));
@@ -171,27 +171,6 @@ describe('Test', function(){
     });
   });
 
-  // users profile
-  describe('Users',function(){
-        it('should not get profile info when not logged in',function(done){
-            request.get('/users')
-                .expect(302,function(err,res){
-                    res.text.should.contain('login');
-                    done(err);
-                });
-        });
-    });
-
-  // match
-  describe('match',function(){
-        it('should not get match info when not logged in',function(done){
-            request.get('/match')
-                .expect(302,function(err,res){
-                    res.text.should.contain('login');
-                    done(err);
-                });
-        });
-    });
   // 404 page
   describe('404',function(){
       it("Get no exist page",function(done){
