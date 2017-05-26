@@ -7,6 +7,7 @@ var request = require('supertest')(app);
 var Account = require('../app_server/models/account');
 
 describe('Test', function(){
+/*
     before(function() {
       Account.register(new Account({username:'test1admin@test.com',password:"123456"}));
     // runs before all tests in this block
@@ -21,7 +22,7 @@ describe('Test', function(){
   afterEach(function(){
     // runs after each test in this block
   });
-
+*/
 
   // index page test
   describe('Index',function(){
@@ -57,7 +58,7 @@ describe('Test', function(){
 
   // register
   describe('Register',function(){
-      this.timeout(20000);
+
       it('Get register Page',function(done){
           request.get('/register')
             .expect(200,function(err,res){
@@ -65,28 +66,47 @@ describe('Test', function(){
                 done(err);
             });
       });
-      it('Register not allowed when username exists', function(done) {
+      describe('register exist user', function () {
           this.timeout(20000);
-          setTimeout(done, 20000);
-          request.post('/register')
-              .send({
-                  username: "admin@admin.com",
-                  password: "admin1",
-                  repassword: "admin1"
-              })
-              .expect(200, function (err, res) {
-                  should.not.exist(err);
-                  res.text.should.contain('User Already Exist');
-                  done();
-              });
+          it('Register not allowed when username exists', function(done) {
+              this.timeout(20000);
+              setTimeout(done, 20000);
+              request.post('/register')
+                  .send({
+                      username: "admin@admin.com",
+                      password: "admin1",
+                      repassword: "admin1"
+                  })
+                  .expect(200, function (err, res) {
+                      should.not.exist(err);
+                      res.text.should.contain('User Already Exist');
+                      done();
+                  });
+          });
       });
-
+      describe('register with different passwords', function () {
+          this.timeout(20000);
+          it('Register not allowed when two passwords are different', function(done) {
+              this.timeout(20000);
+              setTimeout(done, 20000);
+              request.post('/register')
+                  .send({
+                      username: "admin@admin.com"+Math.random(1),
+                      password: "admin1",
+                      repassword: "admin2"
+                  })
+                  .expect(200, function (err, res) {
+                      should.not.exist(err);
+                      res.text.should.contain('Password not match');
+                      done();
+                  });
+          });
+      });
   });
 
 
   //login function
   describe('Login', function() {
-    this.timeout(30000);
     it('should get login page successfully',function(done){
       request.get('/login')
         .expect(200,function(err,res){
@@ -94,20 +114,39 @@ describe('Test', function(){
           done(err);
         });
       });
-    it('should not login with incorrect password', function (done) {
-        this.timeout(30000);
-        setTimeout(done, 30000);
-        request.post('/login')
-        .send({
-            username:"admin@admin.com",
-            password:"someRandomPassword"+Math.random(1)
-        })
-            .expect(200, function (err, res) {
-                should.not.exist(err);
-                res.text.should.contain('Password or username are incorrect');
-                done();
-            });
-    });
+      describe('login with incorrect password', function () {
+          this.timeout(20000);
+          it('should not login with incorrect password', function (done) {
+              this.timeout(20000);
+              setTimeout(done, 20000);
+              request.post('/login')
+                  .send({
+                      username:"admin@admin.com",
+                      password:"someRandomPassword"+Math.random(1)
+                  })
+                  .expect(200, function (err, res) {
+                      should.not.exist(err);
+                      res.text.should.contain('Password or username are incorrect');
+                      done();
+                  });
+          });
+      });
+      describe('login with incorrect password', function () {
+          this.timeout(20000);
+          it('should login with correct password', function (done) {
+              this.timeout(20000);
+              setTimeout(done, 20000);
+              request.post('/login')
+                  .send({
+                      username:"admin@admin.com",
+                      password:"admin1"
+                  })
+                  .expect(302, function (err, res) {
+                      should.not.exist(err);
+                      done();
+                  });
+          });
+      });
   });
 
   // Reset
@@ -119,7 +158,6 @@ describe('Test', function(){
           done(err);
         });
     });
-
   });
 
   // Logout
@@ -133,6 +171,27 @@ describe('Test', function(){
     });
   });
 
+  // users profile
+  describe('Users',function(){
+        it('should not get profile info when not logged in',function(done){
+            request.get('/users')
+                .expect(302,function(err,res){
+                    res.text.should.contain('login');
+                    done(err);
+                });
+        });
+    });
+
+  // match
+  describe('match',function(){
+        it('should not get match info when not logged in',function(done){
+            request.get('/match')
+                .expect(302,function(err,res){
+                    res.text.should.contain('login');
+                    done(err);
+                });
+        });
+    });
   // 404 page
   describe('404',function(){
       it("Get no exist page",function(done){
@@ -162,7 +221,6 @@ describe('Test', function(){
               res.text.should.contain('Missing credentials');
               return done();
           });
-
         });
   });
 });
