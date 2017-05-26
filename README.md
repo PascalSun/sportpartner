@@ -7,12 +7,12 @@ MEAN stack project
 ## Introduction
 ### Author
   1. Group 29
-  2. Teammates: QIANG SUN(21804416) and XUE YU (20657462)
+  2. Team members: QIANG SUN(21804416) and XUE YU (20657462)
 ### Brief
 
   If you want to play basketball or football, you will need some people to team up;  
   If you want to start go to gym or learn to swim, you will need a guide;  
-  If you want to running everyday and you cannot insist on, you will need a partner support each other;
+  If you want to run everyday and you cannot insist on, you will need a partner support each other;
 
   So people can just register on our website about what they want and what they can do;    
   we will match them up as a list( also can be shown on the map) based on the information they provide.
@@ -59,7 +59,7 @@ There are five variables here to match:
 
 To match, the user need to setup profile and preference first.  
 Then it will show the partners who have  exactly the sex and sports kind the user want as a list.  
-And the order of the partners will be decided by difference degree, which combined by location distance, age distance, and skill distance:    
+And the order of the partners will be decided by difference degree, which combined by location distance, age difference, and skill difference:    
   __diff = skilldiff+agediff/5+(location distance)x200__      
 The formula can be adjusted via further research.  
 
@@ -95,8 +95,8 @@ The formula can be adjusted via further research.
 
 
 ## Test
-The whole development is basically Test Drived Development.
-However, as totoally new guys to mean stack, we don't have the experience about how to write a test case before we even haven't known exactly what the features will like.
+The whole development is basically Test Driven Development.
+However, as totoally new learners to mean stack, we don't have the experience about how to write a test case before we even haven't known exactly what the features will like.
 So during the process, every time we finish a function, we just test it by hand, to make sure every feature and function works, and every branch is covered.  
 And after each feature finished, we will test the whole feature.
 
@@ -108,8 +108,8 @@ And in the end, we do the unit and user test.
   - At the same time, when we find a bug, It will take long time to fix and the process is quite struggling
   - to test, just run: `npm test`, and the test result will show on coverage folder
 - User Test: Black Box Test, which without knowing about the code backend.  
-  I ask my girl friend and my friends to test all the features, and give some feedback
-  They indeed give some advice:
+  I asked my girl friend and my friends to test all the features, and gave some feedback
+  They indeed gave some advice:
   - the user should have a username, not the same as the email
   - the user should have a head portrait, for the partners to know each other
   - when the net speed is very low, sometime show error
@@ -202,7 +202,7 @@ And in the end, we do the unit and user test.
   - [x] display match
   - [x] explain match algorithm
   - [x] describe what architecture used, choices made, difficulities faced
-  - [ ] About test / validation Strategy and results
+  - [x] About test / validation Strategy and results
   - [x] Introduction and references
 ## Todo Next
   - [x] the number value problem
