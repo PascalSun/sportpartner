@@ -58,7 +58,7 @@ There are five variables here to match:
 To match, the user need to setup profile and preference first.  
 Then it will show the partners who have  exactly the sex and sports kind the user want as a list.  
 And the order of the partners will be decided by difference degree, which combined by location distance, age distance, and skill distance:    
-  __diff = skill+age/5+(location distance)x200__      
+  __diff = skilldiff+agediff/5+(location distance)x200__      
 The formula can be adjusted via further research.  
 
 ## Development Process
@@ -93,6 +93,28 @@ The formula can be adjusted via further research.
 
 
 ## Test
+The whole development is basically Test Drived Development.
+However, as totoally new guys to mean stack, we don't have the experience about how to write a test case before we even haven't known exactly what the features will like.
+So during the process, every time we finish a function, we just test it by hand, to make sure every feature and function works, and every branch is covered.  
+And after each feature finished, we will test the whole feature.
+
+And in the end, we do the unit and user test.
+- Unit Test: Use path coverage Strategy, and try to cover 100% branches and statement
+  - In fact, when I start to do the test, I start to realize that it is not a good choice which we just use the REST API structure with the match list function.   
+  It will be much easier to test, if we use that.  
+  - Also, the dependency between different files makes the test much harder.
+  - At the same time, when we find a bug, It will take long time to fix and the process is quite struggling
+  - to test, just run: `npm test`, and the test result will show on coverage folder
+- User Test: Black Box Test, which without knowing about the code backend.  
+  I ask my girl friend and my friends to test all the features, and give some feedback
+  They indeed give some advice:
+  - the user should have a username, not the same as the email
+  - the user should have a head portrait, for the partners to know each other
+  - when the net speed is very low, sometime show error
+  - can not be used on a small screen phone, because can not find login button. (which have been fixed)
+ 
+
+
 ## Reference
 - About connect-flash:
   http://mclspace.com/2015/12/03/nodejs-flash-note/
@@ -159,12 +181,12 @@ The formula can be adjusted via further research.
   - [x] See who are contacting with you
   - [x] See who you have contacted
   - [x] Add email notification: Use mailgun altogether with nodemailer to send email to receiver about content and sender when some leave message
-- [ ] Show matches
+- [x] Show matches
   - [x] Location Based Match
     - [x] Match all people, around, and show on the map
     - [x] Match people meet prefer, show as a list, not included the one not meet requirements
     - [x] On the map, the people meet the preference will be labeled with order, and those who not meet requirements will be labeled as __O__
-    - [ ] use rest API, and Angular, not need to change prefer data, show the results
+    - [x] use rest API, and Angular, not need to change prefer data, show the results
   - [x] Graphic Match Visualization
 
 ## Pages
