@@ -13,6 +13,7 @@ var index = require('./app_server/routes/index');
 var users = require('./app_server/routes/users');
 var views = require('./app_server/routes/views');
 var matchs = require('./app_server/routes/match');
+var api = require('./app_server/routes/api');
 
 var flash = require('connect-flash');
 
@@ -41,6 +42,7 @@ app.use('/', index);   // get index page and register/login
 app.use('/users', users); // edit user profile and preference
 app.use('/view',views);  // view and communication features
 app.use('/match',matchs); // match features
+app.use('/api',api); // api routes
 //passport config
 var Account = require('./app_server/models/account');
 passport.use(new LocalStrategy(Account.authenticate()));

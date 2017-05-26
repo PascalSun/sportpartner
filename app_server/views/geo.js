@@ -78,7 +78,6 @@
         return false;
 
       }
-
     function geocodeLatLng(address,id) {
       console.log(address);
       console.log(id);
