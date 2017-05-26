@@ -10,23 +10,19 @@ describe('Index Page Test', function(){
 
 // users profile
 describe('Users',function(){
-      it('should not get profile info when not logged in',function(done){
+      it('should not get profile page when not logged in',function(done){
           request.get('/users')
-              .expect(302,function(err,res){
-                  res.text.should.contain('login');
-                  done(err);
-              });
+              .expect('Location','/login')
+              .end(done);
       });
   });
 
 // match
 describe('match',function(){
-      it('should not get match info when not logged in',function(done){
+      it('should not get match page when not logged in',function(done){
           request.get('/match')
-              .expect(302,function(err,res){
-                  res.text.should.contain('login');
-                  done(err);
-              });
+              .expect('Location','/login')
+              .end(done);
       });
   });
 });

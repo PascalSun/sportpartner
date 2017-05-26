@@ -131,7 +131,7 @@ describe('Index Page Test', function(){
                   });
           });
       });
-      describe('login with incorrect password', function () {
+      describe('login with correct password', function () {
           this.timeout(20000);
           it('should login with correct password', function (done) {
               this.timeout(20000);
@@ -141,10 +141,8 @@ describe('Index Page Test', function(){
                       username:"admin@admin.com",
                       password:"admin1"
                   })
-                  .expect(302, function (err, res) {
-                      should.not.exist(err);
-                      done();
-                  });
+                  .expect('Location','/users/')
+                  .end(done);
           });
       });
   });
@@ -158,6 +156,19 @@ describe('Index Page Test', function(){
           done(err);
         });
     });
+    it('Reset without logged in',function(done){
+        request.post('/reset')
+            .send({
+                username:"admin@admin.com",
+                oldpassword:"admin123",
+                password:"admin2",
+                repassword:"admin2"
+            })
+            .expect(200,function(err,res){
+                res.text.should.contain('Please Login First');
+                done(err);
+            });
+      });
   });
 
   // Logout
