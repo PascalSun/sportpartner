@@ -26,7 +26,7 @@ router.post('/register', function(req, res, next) {
   {
   Account.register(new Account({username: req.body.username}), req.body.password, function(err) {
     if (err) {
-      console.log(err);
+      // console.log(err);
       res.render('register',{namerror:'User Already Exist'});
     }
     else{
@@ -52,16 +52,18 @@ router.get('/login', function(req, res) {
 router.post('/login', function(req, res, next) {
   passport.authenticate('local', function(err, user, info) {
     if (err) { console.log('1');res.render('login',{message:"Username or Password Wrong"});  }
-    if (!user) { console.log('2');res.render('login',{message:info.message}); }
-    req.logIn(user, function(err) {
+    else if (!user) { console.log('2');res.render('login',{message:info.message}); }
+    else{
+      req.logIn(user, function(err) {
         if (err) {
-        res.render('login',{message:'Username and Password not match'});
+          res.render('login',{message:'Username and Password not match'});
         }
         else{
-        res.redirect('/users/');
+          res.redirect('/users/');
         }
         // res.render('index',{username:req.body.username,user:user});
     });
+  }
   })(req, res,next);
 
 });
