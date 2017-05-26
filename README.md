@@ -2,6 +2,7 @@
 MEAN stack project
 - Demo: https://sportspartner.herokuapp.com/
 - The info pages: https://sportspartner.herokuapp.com/about
+- Repo link: https://github.com/PascalSun/sportpartner
 
 ## Introduction
 ### Author
